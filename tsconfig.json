@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/components/Header/DarkModeToggle"  ],
   "exclude": [
     "node_modules"
   ]
