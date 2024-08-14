@@ -5,7 +5,13 @@
     "profile": "Profile"
   },
   "HomePage": {
-    "title": "Home"
+ "title": "Hello, World!\nI'm a full-stack developer.\nI will be posting interesting here",
+
+ "introduction":{"Line1":"Hello, World!",
+ "Line2":"I'm John, a full-stack developer",
+ "Line3":"I will be posting somthing interesting here"
+ 
+}
   },
   "LocaleSwitcher": {
     "cn": "Chinese",
