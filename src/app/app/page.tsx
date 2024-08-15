@@ -1,12 +1,13 @@
 "use client";
 import Header from "@/components/Header";
-import WorkCard from "@/components/WorkCard";
+import WorkCard from "@/components/Home/WorkCard";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
 import projectData from "@/lib/projects.json";
 import { scrollToSection } from "../utils/scrollToSection";
 import { ReactTyped, Typed } from "react-typed";
 import Introduction from "@/components/Home/Introduction";
+import Socials from "@/components/Home/Socials";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
@@ -20,7 +21,7 @@ export default function HomePage() {
       <div className="mt-10 ml-5 laptop:mt-30 p-2 laptop:p-0" ref={topRef}>
       <Introduction/>
 
-      
+      <Socials/>
       </div>
 
 

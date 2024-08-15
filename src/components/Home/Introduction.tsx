@@ -6,7 +6,7 @@ const Introduction: React.FC = () => {
     const t = useTranslations("HomePage.introduction");
   return (
     <>
-      <div className="text-6xl font-semibold tracking-tight whitespace-pre-line">
+      <div className="text-8xl font-semibold tracking-tight whitespace-pre-line">
         <ReactTyped
           strings={[t("Line1")]}
           typeSpeed={50}
@@ -18,7 +18,7 @@ const Introduction: React.FC = () => {
 
         />
       </div>
-      <div className="text-4xl font-semibold tracking-tight whitespace-pre-line">
+      <div className="text-6xl mt-2 font-semibold tracking-tight whitespace-pre-line">
         <ReactTyped
           strings={[t("Line2")]}
           typeSpeed={50}
@@ -29,7 +29,7 @@ const Introduction: React.FC = () => {
 
         />
       </div>
-      <div className="text-4xl font-semibold tracking-tight whitespace-pre-line">
+      <div className="text-6xl  mt-2 font-semibold tracking-tight whitespace-pre-line">
         <ReactTyped
           strings={[t("Line3")]}
           typeSpeed={50}

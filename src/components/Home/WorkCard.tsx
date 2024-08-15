@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useTranslations } from "next-intl";
 // Define the prop types
 interface WorkCardProps {
   img: string;
@@ -9,6 +9,7 @@ interface WorkCardProps {
 }
 
 const WorkCard: React.FC<WorkCardProps> = ({ img, name, description, onClick }) => {
+    const t= useTranslations('HomePage.workCard')
   return (
     <div
       className="overflow-hidden rounded-lg p-2 laptop:p-4 first:ml-0 link"
@@ -25,10 +26,10 @@ const WorkCard: React.FC<WorkCardProps> = ({ img, name, description, onClick }) 
         />
       </div>
       <h1 className="mt-5 text-3xl font-medium">
-        {name ? name : 'Project Name'}
+        {name&&t(name)}
       </h1>
       <h2 className="text-xl opacity-50">
-        {description ? description : 'Description'}
+        {description&&t(description)}
       </h2>
     </div>
   );

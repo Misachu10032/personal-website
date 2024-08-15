@@ -5,13 +5,24 @@
     "profile": "Profile"
   },
   "HomePage": {
- "title": "Hello, World!\nI'm a full-stack developer.\nI will be posting interesting here",
+    "title": "Hello, World!\nI'm a full-stack developer.\nI will be posting interesting here",
 
- "introduction":{"Line1":"Hello, World!",
- "Line2":"I'm John, a full-stack developer",
- "Line3":"I will be posting somthing interesting here"
- 
-}
+    "introduction": {
+      "Line1": "Hello, World!",
+      "Line2": "I'm John, a full-stack developer",
+      "Line3": "I will be posting somthing interesting here"
+    },
+
+    "workCard": {
+      "Project 1": "Canadian Wild life",
+      "Project 1 Description": "Hiking photo dumps",
+      "Project 2": "Vocal Removal Player",
+      "Project 2 Description": "A Karaoke system with built-in vocal removal",
+      "Project 3": "Canadian Wild life",
+      "Project 3 Description": "Hiking photo dumps",
+      "Project 4": "Canadian Wild life",
+      "Project 4 Description": "Hiking photo dumps"
+    }
   },
   "LocaleSwitcher": {
     "cn": "Chinese",
