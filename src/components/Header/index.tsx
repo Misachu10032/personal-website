@@ -6,12 +6,12 @@ import DarkModeToggle from "@/components/Header/DarkModeToggleButton";
 import { scrollToSection } from "@/app/utils/scrollToSection";
 
 interface HeaderProps {
-  workRef: RefObject<HTMLElement>;
+  projectRef: RefObject<HTMLElement>;
   aboutRef: RefObject<HTMLElement>;
   topRef: RefObject<HTMLElement>;
 }
 
-const Header: React.FC<HeaderProps> = ({ workRef, aboutRef, topRef }) => {
+const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
   const t = useTranslations("Header");
 
   return (
@@ -24,10 +24,10 @@ const Header: React.FC<HeaderProps> = ({ workRef, aboutRef, topRef }) => {
           Home
         </button>
         <button
-          onClick={() => scrollToSection(workRef)}
+          onClick={() => scrollToSection(projectRef)}
           className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          Work
+          Projects
         </button>
         <button
           onClick={() => scrollToSection(aboutRef)}
