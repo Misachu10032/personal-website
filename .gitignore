@@ -5,3 +5,7 @@ tsconfig.tsbuildinfo
 /test-results/
 /playwright-report/
 /playwright/.cache/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
