@@ -22,7 +22,7 @@ export default async function LocaleLayout({ children }: Props) {
   return (
     <html lang={locale}>
       <head>
-        <title>Fun Stuff</title>
+        <title>Hello，World!</title>
       </head>
       <body>
         <ThemeProvider>
