@@ -20,8 +20,8 @@
       "Project 2 Description": "A Karaoke system with built-in vocal removal",
       "Project 3": "Retro Games",
       "Project 3 Description": "Games you play as a kid",
-      "Project 4": "Canadian Wild life",
-      "Project 4 Description": "Hiking photo dumps"
+      "Project 4": "Chat Room",
+      "Project 4 Description": "A simple live chat room"
     }
   },
   "LocaleSwitcher": {
@@ -29,18 +29,5 @@
     "en": "English",
     "label": "Language"
   },
-  "LoginPage": {
-    "credentials": "Credentials: jane@doe.com / next-intl",
-    "description": "Please enter your details.",
-    "email": "Email",
-    "invalidCredentials": "Please check your credentials.",
-    "invalidEmail": "Please enter a valid email address.",
-    "invalidPassword": "Please enter a password.",
-    "login": "Sign in",
-    "password": "Password",
-    "title": "Welcome back"
-  },
-  "ProfilePage": {
-    "title": "Profile"
-  }
+
 }

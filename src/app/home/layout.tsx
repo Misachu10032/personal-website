@@ -1,11 +1,8 @@
-import Link from "next/link";
-import { useTranslations } from "next-intl";
-import { ReactNode } from "react";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
-import NavLink from "@/components/NavLink";
-import Header from "@/components/Header";
 
-export default function AppLayout({ children }: { children: ReactNode }) {
+import { ReactNode } from "react";
+
+
+export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <div className="relative">
       <div className="gradient-circle"></div>

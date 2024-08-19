@@ -1,3 +1,4 @@
+
 "use client";
 import Header from "@/components/Header";
 import WorkCard from "@/components/Home/WorkCard";
@@ -33,7 +34,8 @@ export default function HomePage() {
               img={project.imageSrc}
               name={project.title}
               description={project.description}
-              onClick={() => window.open(project.url)}
+              url={project.url}
+
             />
           ))}
         </div>
@@ -44,7 +46,8 @@ export default function HomePage() {
           About
         </h1>
         <p className="mt-2 mx-3 text-xl laptop:text-2xl">
-          If you find some of projects interesting or you have some interesting projects, drop a message through the socials to work together.
+          If you find some of projects interesting or you have some interesting
+          projects, drop a message through the socials to work together.
         </p>
       </div>
 
