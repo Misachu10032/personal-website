@@ -1,5 +1,5 @@
 "use client";
-import Header from "@/components/Header";
+import Header from "@/components/Home/Header";
 import ProjectCard from "@/components/Home/ProjectCard";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";

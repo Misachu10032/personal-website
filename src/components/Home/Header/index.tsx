@@ -1,8 +1,8 @@
 "use client";
 import React, { RefObject } from "react";
 import { useTranslations } from "next-intl";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
-import DarkModeToggle from "@/components/Header/DarkModeToggleButton";
+import LocaleSwitcher from "@/components/Home/Locale/LocaleSwitcher";
+import DarkModeToggle from "@/components/Home/Header/DarkModeToggleButton";
 import { scrollToSection } from "@/app/utils/scrollToSection";
 
 interface HeaderProps {
