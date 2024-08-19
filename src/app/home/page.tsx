@@ -1,7 +1,6 @@
-
 "use client";
 import Header from "@/components/Header";
-import WorkCard from "@/components/Home/WorkCard";
+import ProjectCard from "@/components/Home/ProjectCard";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import projectData from "@/lib/projects.json";
@@ -20,7 +19,7 @@ export default function HomePage() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null
+  if (!mounted) return null;
 
   return (
     <>
@@ -36,13 +35,12 @@ export default function HomePage() {
         </h1>
         <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
           {projectData.projects.map((project) => (
-            <WorkCard
+            <ProjectCard
               key={project.id}
               img={project.imageSrc}
               name={project.title}
               description={project.description}
               url={project.url}
-
             />
           ))}
         </div>
@@ -50,11 +48,9 @@ export default function HomePage() {
 
       <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={aboutRef}>
         <h1 className="text-4xl mx-3 font-extrabold shadow-md bg-clip-text">
-        {t("aboutTitle")}
+          {t("aboutTitle")}
         </h1>
-        <p className="mt-2 mx-3 text-xl laptop:text-2xl">
-   {t("aboutContent")}
-        </p>
+        <p className="mt-2 mx-3 text-xl laptop:text-2xl">{t("aboutContent")}</p>
       </div>
 
       <Socials />

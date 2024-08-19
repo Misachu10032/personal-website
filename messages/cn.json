@@ -5,10 +5,10 @@
     "About": "关于"
   },
   "HomePage": {
-    "title": "Hello, World!\n我是一个全栈开发者。\n我将在这里发布一些有趣的内容",
+
 
     "introduction": {
-      "Line1": "你好，世界！",
+      "Line1": "Hello, World!",
       "Line2": "我是个全栈程序猿。",
       "Line3": "会在这整点奇奇怪怪的东西"
     },
@@ -16,7 +16,7 @@
     "aboutTitle": "关于",
     "aboutContent": "如果你觉得我的一些项目很有趣，或者你有一些有趣的项目想一起合作，欢迎勾搭。",
 
-    "workCard": {
+    "ProjectCard": {
       "Project1": "加拿大风景",
       "Project1Description": "徒步旅行照片集",
       "Project2": "卡拉OK播放器",

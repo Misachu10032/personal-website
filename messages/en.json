@@ -5,8 +5,6 @@
     "About": "About"
   },
   "HomePage": {
-    "title": "Hello, World!\nI'm a full-stack developer.\nI will be posting something interesting here",
-
     "introduction": {
       "Line1": "Hello, World!",
       "Line2": "I'm John, a full-stack developer.",
@@ -16,7 +14,7 @@
     "aboutTitle": "About",
     "aboutContent":"If you find some of projects interesting or you have some interesting projects, drop a message through the socials to work together.",
 
-    "workCard": {
+    "ProjectCard": {
       "Project1": "Canadian Wildlife",
       "Project1Description": "Hiking photo dumps",
       "Project2": "Vocal Removal Player",
