@@ -20,19 +20,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ img, name, description, url }
 
       const hostUrl = new URL(window.location.href);
       console.log(hostUrl)
-      window.open(`${hostUrl}/${url}`)
+      window.open(`${hostUrl.origin}/${url}`)
 
     }
   };
 
   return (
     <div
-      className="overflow-hidden rounded-lg p-2 laptop:p-4 first:ml-0 link"
+      className="overflow-hidden rounded-lg p-2 laptop:p-4"
       onClick={handleClick}
     >
       <div
-        className="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-48 mob:h-auto"
-        style={{ height: '600px' }}
+  className="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-96"
+
       >
         <img
           alt={name}
@@ -44,12 +44,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ img, name, description, url }
       <button
         type="button"
         onClick={handleClick}
-        className="mt-5 text-3xl font-medium"
+        className="mt-5 text-xl laptop:text-3xl  font-medium"
       >
         {name && t(name)}
       </button>
 
-      <h2 className="text-xl opacity-50">
+      <h2 className="text-lg laptop:text-xl  opacity-50">
         {description && t(description)}
       </h2>
     </div>
