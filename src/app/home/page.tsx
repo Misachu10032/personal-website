@@ -3,7 +3,7 @@
 import Header from "@/components/Header";
 import WorkCard from "@/components/Home/WorkCard";
 import { useTranslations } from "next-intl";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import projectData from "@/lib/projects.json";
 import { scrollToSection } from "../utils/scrollToSection";
 import Introduction from "@/components/Home/Introduction";
@@ -14,6 +14,13 @@ export default function HomePage() {
   const projectRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null
 
   return (
     <>
