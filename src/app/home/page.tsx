@@ -25,7 +25,7 @@ export default function HomePage() {
 
       <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={projectRef}>
         <h1 className="text-4xl mx-3 font-extrabold shadow-md bg-clip-text">
-          Projects
+          {t("projectTitle")}
         </h1>
         <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
           {projectData.projects.map((project) => (
@@ -43,11 +43,10 @@ export default function HomePage() {
 
       <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={aboutRef}>
         <h1 className="text-4xl mx-3 font-extrabold shadow-md bg-clip-text">
-          About
+        {t("aboutTitle")}
         </h1>
         <p className="mt-2 mx-3 text-xl laptop:text-2xl">
-          If you find some of projects interesting or you have some interesting
-          projects, drop a message through the socials to work together.
+   {t("aboutContent")}
         </p>
       </div>
 

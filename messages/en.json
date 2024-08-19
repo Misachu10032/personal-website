@@ -1,33 +1,40 @@
 {
   "Header": {
-    "home": "Home",
-    "logout": "Logout",
-    "profile": "Profile"
+    "Home": "Home",
+    "Projects": "Projects",
+    "About": "About"
   },
   "HomePage": {
-    "title": "Hello, World!\nI'm a full-stack developer.\nI will be posting interesting here",
+    "title": "Hello, World!\nI'm a full-stack developer.\nI will be posting something interesting here",
 
     "introduction": {
       "Line1": "Hello, World!",
-      "Line2": "I'm John, a full-stack developer",
-      "Line3": "I will be posting somthing interesting here"
+      "Line2": "I'm John, a full-stack developer.",
+      "Line3": "I will be posting something interesting here."
     },
+    "projectTitle": "Projects",
+    "aboutTitle": "About",
+    "aboutContent":"If you find some of projects interesting or you have some interesting projects, drop a message through the socials to work together.",
 
     "workCard": {
-      "Project 1": "Canadian Wild life",
-      "Project 1 Description": "Hiking photo dumps",
-      "Project 2": "Vocal Removal Player",
-      "Project 2 Description": "A Karaoke system with built-in vocal removal",
-      "Project 3": "Retro Games",
-      "Project 3 Description": "Games you play as a kid",
-      "Project 4": "Chat Room",
-      "Project 4 Description": "A simple live chat room"
+      "Project1": "Canadian Wildlife",
+      "Project1Description": "Hiking photo dumps",
+      "Project2": "Vocal Removal Player",
+      "Project2Description": "A Karaoke system with built-in vocal removal",
+      "Project3": "Retro Games",
+      "Project3Description": "Games you played as a kid",
+      "Project4": "Chat Room",
+      "Project4Description": "A simple live chat room"
+    },
+    "socials": {
+      "GitHub": "GitHub",
+      "Email": "Email",
+      "Wechat": "Wechat"
     }
   },
   "LocaleSwitcher": {
     "cn": "Chinese",
     "en": "English",
     "label": "Language"
-  },
-
+  }
 }

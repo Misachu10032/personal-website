@@ -3,11 +3,14 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import NotificationBubble from "../common/NotificationBubble";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
+import socialsData from "@/lib/socials.json"
 
 const Socials: React.FC<{ className?: string }> = ({ className }) => {
   const [open, setOpen] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
   const { theme } = useTheme(); // Get the current theme
+  const t = useTranslations('HomePage.socials');
 
   const handleIconClick = (clipboard: string, type: string) => {
     navigator.clipboard
@@ -26,27 +29,27 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div className={`${className} mt-8 flex space-x-6`}>
       <a
-        href="https://github.com/Misachu10032"
+        href={socialsData.GitHub}
         target="_blank"
         rel="noopener noreferrer"
         className={`flex items-center space-x-2 ${iconColor} ${hoverColor}`}
       >
         <GitHubIcon />
-        <span>GitHub</span>
+        <span>{t("GitHub")}</span>
       </a>
       <button
-        onClick={() => handleIconClick("johnzhou.engineer@gmail.com", "Email")}
+        onClick={() => handleIconClick(socialsData.Email, t("GitHub"))}
         className={`flex items-center space-x-2 ${iconColor} ${hoverColor}`}
       >
         <EmailIcon />
-        <span>Email</span>
+        <span>{t("Email")}</span>
       </button>
       <button
-        onClick={() => handleIconClick("john222zl", "Wechat")}
+        onClick={() => handleIconClick(socialsData.WeChat, "Wechat")}
         className={`flex items-center space-x-2 ${iconColor} ${hoverColor}`}
       >
         <img src="/icons/wechat.svg" alt="WeChat" className="w-6 h-6" />
-        <span>Wechat</span>
+        <span>{t("Wechat")}</span>
       </button>
       <NotificationBubble
         open={open}

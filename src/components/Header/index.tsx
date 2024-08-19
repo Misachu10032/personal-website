@@ -21,19 +21,19 @@ const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
           onClick={() => scrollToSection(topRef)}
           className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          Home
+          {t("Home")}
         </button>
         <button
           onClick={() => scrollToSection(projectRef)}
           className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          Projects
+          {t("Projects")}
         </button>
         <button
           onClick={() => scrollToSection(aboutRef)}
           className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          About
+         {t("About")}
         </button>
       </nav>
       <div className="mb-2 mt-1 flex items-center ml-8">

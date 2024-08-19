@@ -15,7 +15,7 @@ const DarkModeToggle = () => {
     >
       <img
         className={`h-6 ${theme === "dark" ? "filter invert" : "text-black"}`}
-        src="sun.svg"
+        src="/icons/sun.svg"
         alt="Toggle Dark Mode"
       />
     </button>
