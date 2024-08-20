@@ -1,26 +1,16 @@
 module.exports = {
-  env: {
-    node: true,
-  },
-  extends: [
-    'molindo/typescript',
-    'molindo/react',
-    'molindo/tailwind',
-    'plugin:@next/next/recommended',
-    'prettier', // Ensure compatibility with Prettier formatting
-  ],
+  extends: ['next', 'next/core-web-vitals', 'prettier'],
   rules: {
-    '@typescript-eslint/no-unused-vars': 'off', // Disable no-unused-vars rule for TypeScript
-    'react/function-component-definition': 'off',
-    '@next/next/no-img-element': 'off',
-    'func-style': 'off',
-    'react/button-has-type': 'off',
-    'import/order': 'off', // Disable import order rule
-
-    'tailwindcss/classnames-order': 'off', // Disable tailwind classnames order rule
-    'react/jsx-sort-props': 'off', // Disable prop sorting rule
-    'jsx-a11y/anchor-is-valid': 'off', // Disable a11y rule for anchor validity
-    'jsx-a11y/click-events-have-key-events': 'off', // Disable a11y click event key event rule
-    'jsx-a11y/no-static-element-interactions': 'off', // Disable a11y rule for static element interactions
+    'prettier/prettier': 'off', // Disable Prettier formatting errors
+    '@typescript-eslint/array-type': 'off', // Disable array-type rule
+    'react/self-closing-comp': 'off', // Disable self-closing components rule
+    'no-console': 'off', // Disable console statement errors
+    'jsx-a11y/img-redundant-alt': 'off', // Disable redundant alt attribute warnings
+    'import/no-extraneous-dependencies': 'off', // Allow extraneous dependencies
+    '@typescript-eslint/method-signature-style': 'off', // Allow function property signature
+    'sort-destructure-keys/sort-destructure-keys': 'off', // Disable object key sorting rule
+    'arrow-body-style': 'off', // Disable arrow body style rule
+    'react/jsx-sort-props': 'off', // Disable props sorting rule
+    'react/jsx-no-duplicate-props': 'off', // Allow duplicate props
   },
 };

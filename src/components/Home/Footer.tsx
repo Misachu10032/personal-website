@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 
-
 // Define the props interface, even if empty, for clarity and future extensibility
 interface FooterProps {}
 
