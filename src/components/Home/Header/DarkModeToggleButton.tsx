@@ -1,25 +1,25 @@
 'use client';
 
-import { useTheme } from 'next-themes';
+import {useTheme} from 'next-themes';
 
-const DarkModeToggle = () => {
-  const { theme, setTheme } = useTheme();
+function DarkModeToggle() {
+  const {setTheme, theme} = useTheme();
 
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      type="button"
-      className={`transition-all ease-out duration-300 laptop:m-2 p-2 flex items-center rounded-sm
+      className={`flex items-center rounded-sm p-2 transition-all duration-300 ease-out laptop:m-2
         ${theme === 'dark' ? 'hover:bg-slate-600' : 'hover:bg-slate-200'} 
         hover:scale-105 active:scale-100`}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      type="button"
     >
       <img
-        className={`h-6 ${theme === 'dark' ? 'filter invert' : 'text-black'}`}
-        src="/icons/sun.svg"
         alt="Toggle Dark Mode"
+        className={`h-6 ${theme === 'dark' ? 'invert filter' : 'text-black'}`}
+        src="/icons/sun.svg"
       />
     </button>
   );
-};
+}
 
 export default DarkModeToggle;

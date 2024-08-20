@@ -1,9 +1,9 @@
 'use client';
-import React, { RefObject } from 'react';
-import { useTranslations } from 'next-intl';
-import LocaleSwitcher from '@/components/Home/Locale/LocaleSwitcher';
+import {useTranslations} from 'next-intl';
+import React, {RefObject} from 'react';
+import {scrollToSection} from '@/app/utils/scrollToSection';
 import DarkModeToggle from '@/components/Home/Header/DarkModeToggleButton';
-import { scrollToSection } from '@/app/utils/scrollToSection';
+import LocaleSwitcher from '@/components/Home/Locale/LocaleSwitcher';
 
 interface HeaderProps {
   projectRef: RefObject<HTMLElement>;
@@ -11,32 +11,32 @@ interface HeaderProps {
   topRef: RefObject<HTMLElement>;
 }
 
-const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
+const Header: React.FC<HeaderProps> = ({aboutRef, projectRef, topRef}) => {
   const t = useTranslations('Header');
 
   return (
-    <div className="flex items-center justify-end p-4 pt-6 mt-2 laptop:p-0">
+    <div className="mt-2 flex items-center justify-end p-4 pt-6 laptop:p-0">
       <nav className="flex gap-6">
         <button
+          className="rounded-md px-6 py-3 text-3xl font-semibold hover:bg-gray-200 dark:hover:bg-gray-700"
           onClick={() => scrollToSection(topRef)}
-          className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
           {t('Home')}
         </button>
         <button
+          className="rounded-md px-6 py-3 text-3xl font-semibold hover:bg-gray-200 dark:hover:bg-gray-700"
           onClick={() => scrollToSection(projectRef)}
-          className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
           {t('Projects')}
         </button>
         <button
+          className="rounded-md px-6 py-3 text-3xl font-semibold hover:bg-gray-200 dark:hover:bg-gray-700"
           onClick={() => scrollToSection(aboutRef)}
-          className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
           {t('About')}
         </button>
       </nav>
-      <div className="mb-2 mt-1 flex items-center ml-8">
+      <div className="mb-2 ml-8 mt-1 flex items-center">
         <LocaleSwitcher />
         <DarkModeToggle />
       </div>

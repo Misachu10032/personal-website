@@ -1,8 +1,8 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 const ImageGallery: React.FC = () => {
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<Array<string>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const imagesPerPage = 4;
 
@@ -10,7 +10,7 @@ const ImageGallery: React.FC = () => {
     const fetchImages = async () => {
       try {
         const response = await fetch('/api/fetchPhotos'); // Adjust this endpoint to your API
-        const data: string[] = await response.json();
+        const data: Array<string> = await response.json();
         console.log('Fetched image URLs:', data);
         setImages(data);
       } catch (error) {
@@ -42,13 +42,13 @@ const ImageGallery: React.FC = () => {
               <a
                 key={index}
                 href={url}
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
               >
                 <img
-                  src={url}
                   alt={`Image ${index}`}
                   className="gallery-image"
+                  src={url}
                 />
               </a>
             ))}

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import {useTranslations} from 'next-intl';
+import {useTheme} from 'next-themes';
+import React, {useState} from 'react';
 import NotificationBubble from '../common/NotificationBubble';
-import { useTheme } from 'next-themes';
-import { useTranslations } from 'next-intl';
 import socialsData from '@/lib/socials.json';
 
-const Socials: React.FC<{ className?: string }> = ({ className }) => {
+const Socials: React.FC<{className?: string}> = ({className}) => {
   const [open, setOpen] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
-  const { theme } = useTheme(); // Get the current theme
+  const {theme} = useTheme(); // Get the current theme
   const t = useTranslations('HomePage.socials');
 
   const handleIconClick = (clipboard: string, type: string) => {
@@ -30,32 +30,32 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div className={`${className} mt-8 flex space-x-6`}>
       <a
-        href={socialsData.GitHub}
-        target="_blank"
-        rel="noopener noreferrer"
         className={`flex items-center space-x-2 ${iconColor} ${hoverColor}`}
+        href={socialsData.GitHub}
+        rel="noopener noreferrer"
+        target="_blank"
       >
         <GitHubIcon />
         <span>{t('GitHub')}</span>
       </a>
       <button
-        onClick={() => handleIconClick(socialsData.Email, t('GitHub'))}
         className={`flex items-center space-x-2 ${iconColor} ${hoverColor}`}
+        onClick={() => handleIconClick(socialsData.Email, t('GitHub'))}
       >
         <EmailIcon />
         <span>{t('Email')}</span>
       </button>
       <button
-        onClick={() => handleIconClick(socialsData.WeChat, 'Wechat')}
         className={`flex items-center space-x-2 ${iconColor} ${hoverColor}`}
+        onClick={() => handleIconClick(socialsData.WeChat, 'Wechat')}
       >
-        <img src="/icons/wechat.svg" alt="WeChat" className="w-6 h-6" />
+        <img alt="WeChat" className="h-6 w-6" src="/icons/wechat.svg" />
         <span>{t('Wechat')}</span>
       </button>
       <NotificationBubble
-        open={open}
-        onClose={() => setOpen(false)}
         message={`${notificationMessage} copied to clipboard!`}
+        onClose={() => setOpen(false)}
+        open={open}
       />
     </div>
   );

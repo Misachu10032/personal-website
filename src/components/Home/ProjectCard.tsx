@@ -1,5 +1,5 @@
+import {useTranslations} from 'next-intl';
 import React from 'react';
-import { useTranslations } from 'next-intl';
 
 // Define the prop types
 interface ProjectCardProps {
@@ -10,10 +10,10 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
+  description,
   img,
   name,
-  description,
-  url,
+  url
 }) => {
   const t = useTranslations('HomePage.ProjectCard');
 
@@ -33,23 +33,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       className="overflow-hidden rounded-lg p-2 laptop:p-4"
       onClick={handleClick}
     >
-      <div className="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-96">
+      <div className="relative h-96 overflow-hidden rounded-lg transition-all duration-300 ease-out">
         <img
           alt={name}
-          className="h-full w-full object-cover hover:scale-110 transition-all ease-out duration-300"
+          className="h-full w-full object-cover transition-all duration-300 ease-out hover:scale-110"
           src={img}
         />
       </div>
 
       <button
-        type="button"
+        className="mt-5 text-xl font-medium  laptop:text-3xl"
         onClick={handleClick}
-        className="mt-5 text-xl laptop:text-3xl  font-medium"
+        type="button"
       >
         {name && t(name)}
       </button>
 
-      <h2 className="text-lg laptop:text-xl  opacity-50">
+      <h2 className="text-lg opacity-50  laptop:text-xl">
         {description && t(description)}
       </h2>
     </div>

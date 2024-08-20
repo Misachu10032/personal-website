@@ -1,26 +1,26 @@
 'use client';
 
-import { CheckIcon, LanguageIcon } from '@heroicons/react/24/solid';
+import {CheckIcon, LanguageIcon} from '@heroicons/react/24/solid';
 import * as Select from '@radix-ui/react-select';
 import clsx from 'clsx';
-import { useTransition } from 'react';
-import { useTheme } from 'next-themes';
-import { Locale } from '@/config';
-import { setUserLocale } from '@/services/locale';
+import {useTheme} from 'next-themes';
+import {useTransition} from 'react';
+import {Locale} from '@/config';
+import {setUserLocale} from '@/services/locale';
 
 type Props = {
   defaultValue: string;
-  items: Array<{ value: string; label: string }>;
+  items: Array<{value: string; label: string}>;
   label: string;
 };
 
 export default function LocaleSwitcherSelect({
   defaultValue,
   items,
-  label,
+  label
 }: Props) {
   const [isPending, startTransition] = useTransition();
-  const { theme } = useTheme();
+  const {theme} = useTheme();
 
   function onChange(value: string) {
     const locale = value as Locale;

@@ -1,12 +1,12 @@
 'use client';
+import {useTranslations} from 'next-intl';
+import {useEffect, useRef, useState} from 'react';
+import {scrollToSection} from '../utils/scrollToSection';
 import Header from '@/components/Home/Header';
-import ProjectCard from '@/components/Home/ProjectCard';
-import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
-import projectData from '@/lib/projects.json';
-import { scrollToSection } from '../utils/scrollToSection';
 import Introduction from '@/components/Home/Introduction';
+import ProjectCard from '@/components/Home/ProjectCard';
 import Socials from '@/components/Home/Socials';
+import projectData from '@/lib/projects.json';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
@@ -23,34 +23,34 @@ export default function HomePage() {
 
   return (
     <>
-      <Header topRef={topRef} aboutRef={aboutRef} projectRef={projectRef} />
-      <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={topRef}>
+      <Header aboutRef={aboutRef} projectRef={projectRef} topRef={topRef} />
+      <div ref={topRef} className="mt-10 p-4 laptop:mt-20 laptop:p-0">
         <Introduction />
         <Socials />
       </div>
 
-      <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={projectRef}>
-        <h1 className="text-4xl mx-3 font-extrabold shadow-md bg-clip-text">
+      <div ref={projectRef} className="mt-10 p-4 laptop:mt-20 laptop:p-0">
+        <h1 className="mx-3 bg-clip-text text-4xl font-extrabold shadow-md">
           {t('projectTitle')}
         </h1>
-        <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
+        <div className="mt-5 grid grid-cols-1 gap-4 tablet:grid-cols-2 laptop:mt-10">
           {projectData.projects.map((project) => (
             <ProjectCard
               key={project.id}
+              description={project.description}
               img={project.imageSrc}
               name={project.title}
-              description={project.description}
               url={project.url}
             />
           ))}
         </div>
       </div>
 
-      <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={aboutRef}>
-        <h1 className="text-4xl mx-3 font-extrabold shadow-md bg-clip-text">
+      <div ref={aboutRef} className="mt-10 p-4 laptop:mt-20 laptop:p-0">
+        <h1 className="mx-3 bg-clip-text text-4xl font-extrabold shadow-md">
           {t('aboutTitle')}
         </h1>
-        <p className="mt-2 mx-3 text-xl laptop:text-2xl">{t('aboutContent')}</p>
+        <p className="mx-3 mt-2 text-xl laptop:text-2xl">{t('aboutContent')}</p>
       </div>
 
       <Socials />
