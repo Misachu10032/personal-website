@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslations } from "next-intl";
+import { useTranslations } from 'next-intl';
 
 // Define the prop types
 interface ProjectCardProps {
@@ -9,19 +9,22 @@ interface ProjectCardProps {
   url: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ img, name, description, url }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  img,
+  name,
+  description,
+  url,
+}) => {
   const t = useTranslations('HomePage.ProjectCard');
-  
+
   const handleClick = () => {
     const isExternal = /^https?:\/\//.test(url); // Check if the URL is external
     if (isExternal) {
       window.open(url); // Open external URL in a new tab
     } else {
-
       const hostUrl = new URL(window.location.href);
-      console.log(hostUrl)
-      window.open(`${hostUrl.origin}/${url}`)
-
+      console.log(hostUrl);
+      window.open(`${hostUrl.origin}/${url}`);
     }
   };
 
@@ -30,10 +33,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ img, name, description, url }
       className="overflow-hidden rounded-lg p-2 laptop:p-4"
       onClick={handleClick}
     >
-      <div
-  className="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-96"
-
-      >
+      <div className="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-96">
         <img
           alt={name}
           className="h-full w-full object-cover hover:scale-110 transition-all ease-out duration-300"

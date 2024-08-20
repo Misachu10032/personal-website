@@ -24,7 +24,7 @@ export async function GET() {
         const url = s3.getSignedUrl('getObject', {
           Bucket: 'john-photo',
           Key: item.Key,
-          Expires: 60 * 5 // URL expires in 5 minutes
+          Expires: 60 * 5, // URL expires in 5 minutes
         });
         return url;
       })
@@ -33,6 +33,9 @@ export async function GET() {
     return NextResponse.json(imageUrls);
   } catch (error) {
     console.error('Error fetching photos:', error);
-    return NextResponse.json({ error: 'Failed to fetch photos' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch photos' },
+      { status: 500 }
+    );
   }
 }

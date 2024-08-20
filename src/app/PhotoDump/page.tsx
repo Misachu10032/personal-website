@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from 'react';
 
 const ImageGallery: React.FC = () => {
@@ -11,7 +11,7 @@ const ImageGallery: React.FC = () => {
       try {
         const response = await fetch('/api/fetchPhotos'); // Adjust this endpoint to your API
         const data: string[] = await response.json();
-        console.log("Fetched image URLs:", data);
+        console.log('Fetched image URLs:', data);
         setImages(data);
       } catch (error) {
         console.error('Error fetching images:', error);
@@ -39,8 +39,17 @@ const ImageGallery: React.FC = () => {
         <>
           <div className="image-grid">
             {currentImages.map((url, index) => (
-              <a key={index} href={url} target="_blank" rel="noopener noreferrer">
-                <img src={url} alt={`Image ${index}`} className="gallery-image" />
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={url}
+                  alt={`Image ${index}`}
+                  className="gallery-image"
+                />
               </a>
             ))}
           </div>

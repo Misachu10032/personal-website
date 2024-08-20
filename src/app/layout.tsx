@@ -1,12 +1,12 @@
-import clsx from "clsx";
-import { Inter } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
-import { ReactNode } from "react";
-import "./globals.css";
-import { ThemeProvider } from "next-themes";
+import clsx from 'clsx';
+import { Inter } from 'next/font/google';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
+import { ReactNode } from 'react';
+import './globals.css';
+import { ThemeProvider } from 'next-themes';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 type Props = {
   children: ReactNode;

@@ -7,7 +7,11 @@ interface NotificationBubbleProps {
   message: string;
 }
 
-const NotificationBubble: React.FC<NotificationBubbleProps> = ({ open, onClose, message }) => {
+const NotificationBubble: React.FC<NotificationBubbleProps> = ({
+  open,
+  onClose,
+  message,
+}) => {
   return (
     <Snackbar
       open={open}

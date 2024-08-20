@@ -17,7 +17,7 @@ type Props = {
 export default function LocaleSwitcherSelect({
   defaultValue,
   items,
-  label
+  label,
 }: Props) {
   const [isPending, startTransition] = useTransition();
   const { theme } = useTheme();
@@ -54,7 +54,9 @@ export default function LocaleSwitcherSelect({
             align="end"
             className={clsx(
               'min-w-[8rem] overflow-hidden rounded-sm py-1 shadow-md',
-              theme === 'dark' ? 'bg-slate-800 text-white' : 'bg-white text-black'
+              theme === 'dark'
+                ? 'bg-slate-800 text-white'
+                : 'bg-white text-black'
             )}
             position="popper"
           >
@@ -64,7 +66,9 @@ export default function LocaleSwitcherSelect({
                   key={item.value}
                   className={clsx(
                     'flex cursor-default items-center px-3 py-2 text-base',
-                    theme === 'dark' ? 'data-[highlighted]:bg-slate-600' : 'data-[highlighted]:bg-slate-100'
+                    theme === 'dark'
+                      ? 'data-[highlighted]:bg-slate-600'
+                      : 'data-[highlighted]:bg-slate-100'
                   )}
                   value={item.value}
                 >
@@ -82,7 +86,9 @@ export default function LocaleSwitcherSelect({
                 </Select.Item>
               ))}
             </Select.Viewport>
-            <Select.Arrow className={theme === 'dark' ? 'fill-slate-800' : 'fill-white'} />
+            <Select.Arrow
+              className={theme === 'dark' ? 'fill-slate-800' : 'fill-white'}
+            />
           </Select.Content>
         </Select.Portal>
       </Select.Root>

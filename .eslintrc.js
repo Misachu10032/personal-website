@@ -1,11 +1,11 @@
 module.exports = {
   env: {
-    node: true
+    node: true,
   },
   extends: [
     'molindo/typescript',
     'molindo/react',
     'molindo/tailwind',
-    'plugin:@next/next/recommended'
-  ]
+    'plugin:@next/next/recommended',
+  ],
 };

@@ -1,9 +1,9 @@
-"use client";
-import React, { RefObject } from "react";
-import { useTranslations } from "next-intl";
-import LocaleSwitcher from "@/components/Home/Locale/LocaleSwitcher";
-import DarkModeToggle from "@/components/Home/Header/DarkModeToggleButton";
-import { scrollToSection } from "@/app/utils/scrollToSection";
+'use client';
+import React, { RefObject } from 'react';
+import { useTranslations } from 'next-intl';
+import LocaleSwitcher from '@/components/Home/Locale/LocaleSwitcher';
+import DarkModeToggle from '@/components/Home/Header/DarkModeToggleButton';
+import { scrollToSection } from '@/app/utils/scrollToSection';
 
 interface HeaderProps {
   projectRef: RefObject<HTMLElement>;
@@ -12,7 +12,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
-  const t = useTranslations("Header");
+  const t = useTranslations('Header');
 
   return (
     <div className="flex items-center justify-end p-4 pt-6 mt-2 laptop:p-0">
@@ -21,19 +21,19 @@ const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
           onClick={() => scrollToSection(topRef)}
           className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          {t("Home")}
+          {t('Home')}
         </button>
         <button
           onClick={() => scrollToSection(projectRef)}
           className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          {t("Projects")}
+          {t('Projects')}
         </button>
         <button
           onClick={() => scrollToSection(aboutRef)}
           className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-         {t("About")}
+          {t('About')}
         </button>
       </nav>
       <div className="mb-2 mt-1 flex items-center ml-8">
