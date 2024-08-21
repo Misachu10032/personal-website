@@ -19,7 +19,7 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
         setOpen(true); // Show the notification bubble
         setNotificationMessage(type);
       })
-      .catch((err) => console.error('Failed to copy email: ', err));
+      .catch((err) => console.error('Failed to copy: ', err));
   };
 
   // Define icon color based on theme
@@ -39,7 +39,7 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
         <span>{t('GitHub')}</span>
       </a>
       <button
-        onClick={() => handleIconClick(socialsData.Email, t('GitHub'))}
+        onClick={() => handleIconClick(socialsData.Email,'Email')}
         className={`flex items-center space-x-2 ${iconColor} ${hoverColor}`}
       >
         <EmailIcon />

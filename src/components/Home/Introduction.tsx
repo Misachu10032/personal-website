@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import Typed, { ReactTyped } from 'react-typed';
+import { ReactTyped } from 'react-typed';
 
 const Introduction: React.FC = () => {
   const t = useTranslations('HomePage.introduction');

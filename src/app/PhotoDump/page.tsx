@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 
 const ImageGallery: React.FC = () => {
-  const [images, setImages] = useState<string[]>([]);
+  const [images, setImages] = useState<Array<string>>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const imagesPerPage = 4;
 
@@ -10,7 +10,7 @@ const ImageGallery: React.FC = () => {
     const fetchImages = async () => {
       try {
         const response = await fetch('/api/fetchPhotos'); // Adjust this endpoint to your API
-        const data: string[] = await response.json();
+        const data: Array<string> = await response.json();
         console.log('Fetched image URLs:', data);
         setImages(data);
       } catch (error) {
@@ -26,87 +26,59 @@ const ImageGallery: React.FC = () => {
   const indexOfFirstImage = indexOfLastImage - imagesPerPage;
   const currentImages = images.slice(indexOfFirstImage, indexOfLastImage);
 
+  // Calculate total pages
+  const totalPages = Math.ceil(images.length / imagesPerPage);
+
   // Handler for page change
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
   };
 
   return (
-    <div className="image-gallery">
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-center mb-6">Gallery</h1>
       {images.length === 0 ? (
-        <p>Loading images...</p>
+        <p className="text-center text-gray-500">Loading images...</p>
       ) : (
         <>
-          <div className="image-grid">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
             {currentImages.map((url, index) => (
               <a
                 key={index}
                 href={url}
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
+                className="block overflow-hidden rounded-lg shadow-lg"
               >
                 <img
-                  src={url}
                   alt={`Image ${index}`}
-                  className="gallery-image"
+                  className="w-full h-96 object-cover"
+                  src={url}
                 />
               </a>
             ))}
           </div>
-          <div className="pagination">
+          <div className="flex justify-between items-center mt-8">
             <button
               disabled={currentPage === 1}
               onClick={() => handlePageChange(currentPage - 1)}
+              className="px-4 py-2 bg-gray-700 text-white rounded-lg disabled:bg-gray-400"
             >
               Previous
             </button>
-            <span>Page {currentPage}</span>
+            <span className="text-lg font-semibold">
+              Page {currentPage} of {totalPages}
+            </span>
             <button
               disabled={indexOfLastImage >= images.length}
               onClick={() => handlePageChange(currentPage + 1)}
+              className="px-4 py-2 bg-gray-700 text-white rounded-lg disabled:bg-gray-400"
             >
               Next
             </button>
           </div>
         </>
       )}
-      <style jsx>{`
-        .image-gallery {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        .image-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr); /* Display 2 images per row */
-          gap: 10px;
-        }
-        .gallery-image {
-          width: 100%; /* Keep images at their original resolution */
-          height: auto;
-          border: 1px solid #ddd;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-        .pagination {
-          margin-top: 20px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-        .pagination button {
-          padding: 5px 10px;
-          border: none;
-          background-color: #0070f3;
-          color: white;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-        .pagination button:disabled {
-          background-color: #ccc;
-          cursor: not-allowed;
-        }
-      `}</style>
     </div>
   );
 };
