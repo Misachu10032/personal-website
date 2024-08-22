@@ -9,7 +9,7 @@ import socialsData from '@/lib/socials.json';
 const Socials: React.FC<{ className?: string }> = ({ className }) => {
   const [open, setOpen] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState('');
-  const { theme } = useTheme(); // Get the current theme
+
   const t = useTranslations('HomePage.socials');
 
   const handleIconClick = (clipboard: string, type: string) => {
@@ -23,6 +23,7 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   // Define icon color based on theme
+  const { theme } = useTheme(); // Get the current theme
   const iconColor = theme === 'dark' ? 'text-white' : 'text-gray-800';
   const hoverColor =
     theme === 'dark' ? 'hover:text-gray-400' : 'hover:text-gray-600';
