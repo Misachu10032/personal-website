@@ -1,14 +1,72 @@
-# bootstraped from example-app-router-without-i18n-routing
+# Personal Website
 
-An example that showcases how an app can provide a locale in `i18n.ts` to `next-intl` in an App Router setup ([without i18n routing setup](https://next-intl-docs.vercel.app/docs/getting-started/app-router/without-i18n-routing)).
+This is a personal website project built with Next.js, React, and TypeScript. It features a responsive design, internationalization support, and a dark mode toggle.
 
-This app uses Server Actions in two places:
+## Features
 
-1. The locale is managed in a cookie that can be updated via `setUserLocale` in [`src/services/locale.ts`](./src/services/locale.ts).
-2. The login is handled via an action that uses [`zod`](https://zod.dev/) to provide validation and returns localized error messages right from the server.
+- Responsive design for mobile and desktop
+- Internationalization (i18n) support for English and Chinese
+- Dark mode toggle
+- Project showcase
+- Social media links
+- Photo gallery (connected to AWS S3)
 
-## Deploy your own
+## Technologies Used
 
-By deploying to [Vercel](https://vercel.com), you can check out the example in action. Note that you'll be prompted to create a new GitHub repository as part of this, allowing you to make subsequent changes.
+- Next.js 14
+- React 18
+- TypeScript
+- Tailwind CSS
+- next-intl for internationalization
+- next-themes for dark mode
+- AWS SDK for S3 integration
+- Material-UI icons
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Misachu10032/personal-website)
+## Getting Started
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/Misachu10032/personal-website.git
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Set up environment variables:
+   Create a `.env.local` file in the root directory and add the following:
+   ```
+   AWS_ACCESS_KEY_ID=your_aws_access_key
+   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+   ```
+
+4. Run the development server:
+   ```
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## Project Structure
+
+- `src/app`: Next.js app router pages
+- `src/components`: React components
+- `src/lib`: JSON data files
+- `src/services`: Server-side services
+- `messages`: Internationalization message files
+- `public`: Static assets
+
+## Deployment
+
+This project is hosted on Vercel.
+
+[![Deploy with Vercel](https://johnzhou.vercel.app/Home)]
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
