@@ -98,7 +98,7 @@ const SnakeGame: React.FC = () => {
         {snake.map((segment, index) => (
           <div
             key={index}
-            className={index === 0 ? "bg-green-00" : "bg-green-500"}
+            className={index === 0 ? "bg-green-600" : "bg-green-400"}
             style={{
               position: 'absolute',
               left: segment.x * CELL_SIZE,
