@@ -61,7 +61,7 @@ This is a personal website project built with Next.js, React, and TypeScript. It
 
 This project is hosted on Vercel.
 
-[[Deploy with Vercel](https://johnzhou.vercel.app/Home)]
+[Deploy with Verce](https://johnzhou.vercel.app/Home)
 
 ## Contributing
 
