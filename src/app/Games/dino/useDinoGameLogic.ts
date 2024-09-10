@@ -1,19 +1,26 @@
+// useDinoGameLogic.ts
 import { useState, useEffect, useCallback } from 'react';
-
-const GROUND_HEIGHT = 20;
-const DINO_INITIAL_WIDTH = 50;
-const DINO_INITIAL_HEIGHT = 50;
-const DINO_CROUCHED_WIDTH = 50;
-const DINO_CROUCHED_HEIGHT = 25;
-const OBSTACLE_WIDTH = 30;
-const MIN_OBSTACLE_HEIGHT = 20;
-const MAX_OBSTACLE_HEIGHT = 60;
+import {
+  GROUND_HEIGHT,
+  DINO_INITIAL_WIDTH,
+  DINO_INITIAL_HEIGHT,
+  DINO_CROUCHED_WIDTH,
+  DINO_CROUCHED_HEIGHT,
+  OBSTACLE_WIDTH,
+  MIN_OBSTACLE_HEIGHT,
+  MAX_OBSTACLE_HEIGHT,
+  DINO_LEFT_POSITION,
+  OBSTACLE_START_X
+} from './gameConfig';
+import { generateObstacle, ObstacleType } from './obstacleUtils';
 
 export const useDinoGameLogic = () => {
+    const [currentObstacle, setCurrentObstacle] = useState<ObstacleType>(generateObstacle());
   const [dinoY, setDinoY] = useState<number>(0);
   const [dinoWidth, setDinoWidth] = useState<number>(DINO_INITIAL_WIDTH);
   const [dinoHeight, setDinoHeight] = useState<number>(DINO_INITIAL_HEIGHT);
-  const [obstacleX, setObstacleX] = useState<number>(window.innerWidth);
+
+  const [obstacleX, setObstacleX] = useState<number>(OBSTACLE_START_X);
   const [obstacleHeight, setObstacleHeight] = useState<number>(MIN_OBSTACLE_HEIGHT);
   const [isJumping, setIsJumping] = useState<boolean>(false);
   const [isCrouching, setIsCrouching] = useState<boolean>(false);
@@ -63,12 +70,9 @@ export const useDinoGameLogic = () => {
     const gameLoop = setInterval(() => {
       if (!gameOver) {
         setObstacleX((prev) => {
-          if (prev <= -OBSTACLE_WIDTH) {
+          if (prev <= -currentObstacle.width) {
             setScore((prevScore) => prevScore + 1);
-            setObstacleHeight(
-              Math.random() * (MAX_OBSTACLE_HEIGHT - MIN_OBSTACLE_HEIGHT) +
-                MIN_OBSTACLE_HEIGHT
-            );
+            setCurrentObstacle(generateObstacle());
             return window.innerWidth;
           }
           return prev - 7;
@@ -79,16 +83,16 @@ export const useDinoGameLogic = () => {
     return () => {
       clearInterval(gameLoop);
     };
-  }, [gameOver]);
+  }, [gameOver, currentObstacle.width]);
 
   useEffect(() => {
     if (!gameOver) {
       const dinoBottom = dinoY + dinoHeight;
-      const dinoLeft = 20; // Adjust if necessary based on Dino's horizontal position
+      const dinoLeft = DINO_LEFT_POSITION;
       const dinoRight = dinoLeft + dinoWidth;
-      const obstacleBottom = GROUND_HEIGHT + obstacleHeight;
+      const obstacleBottom = GROUND_HEIGHT + currentObstacle.height;
       const obstacleLeft = obstacleX;
-      const obstacleRight = obstacleX + OBSTACLE_WIDTH;
+      const obstacleRight = obstacleX + currentObstacle.width;
 
       const isCollision =
         obstacleRight > dinoLeft &&
@@ -100,20 +104,40 @@ export const useDinoGameLogic = () => {
         setGameOver(true);
       }
     }
-  }, [obstacleX, dinoY, dinoHeight, dinoWidth, gameOver]);
+  }, [obstacleX, dinoY, dinoHeight, dinoWidth, gameOver, currentObstacle]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.code === 'Space') {
         jump();
-      } else if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
+    
+      } 
+    };
+
+
+    window.addEventListener('keydown', handleKeyPress);
+
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+
+    };
+  }, [jump]);
+
+
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+
+    if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
         crouch();
+
       }
     };
 
     const handleKeyRelease = (e: KeyboardEvent) => {
       if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
         stand();
+ 
       }
     };
 
@@ -124,13 +148,13 @@ export const useDinoGameLogic = () => {
       window.removeEventListener('keydown', handleKeyPress);
       window.removeEventListener('keyup', handleKeyRelease);
     };
-  }, [jump, crouch, stand]);
+  }, [crouch, stand]);
 
   const resetGame = () => {
     setDinoY(0);
     setDinoWidth(DINO_INITIAL_WIDTH);
     setDinoHeight(DINO_INITIAL_HEIGHT);
-    setObstacleX(window.innerWidth);
+    setObstacleX(OBSTACLE_START_X);
     setObstacleHeight(
       Math.random() * (MAX_OBSTACLE_HEIGHT - MIN_OBSTACLE_HEIGHT) +
         MIN_OBSTACLE_HEIGHT
@@ -154,5 +178,6 @@ export const useDinoGameLogic = () => {
     OBSTACLE_WIDTH,
     jump,
     resetGame,
+    currentObstacle
   };
 };

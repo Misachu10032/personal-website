@@ -1,9 +1,8 @@
-'use client';
+"use client"
 import React from 'react';
 import { useDinoGameLogic } from './useDinoGameLogic';
-
-const GROUND_HEIGHT = 20;
-const VISUAL_SCALE = 1.5;
+import { GROUND_HEIGHT, VISUAL_SCALE, DINO_LEFT_POSITION } from './gameConfig';
+import { ObstacleType } from './obstacleUtils';
 
 const DinoGame: React.FC = () => {
   const {
@@ -18,6 +17,7 @@ const DinoGame: React.FC = () => {
     score,
     jump,
     resetGame,
+    currentObstacle,
   } = useDinoGameLogic();
 
   return (
@@ -28,10 +28,11 @@ const DinoGame: React.FC = () => {
         <img
           src="/Games/Kirby/Kirby-running.gif"
           alt="Kirby"
-          className={`absolute left-20 transition-transform duration-150 ${
+          className={`absolute transition-transform duration-150 ${
             isCrouching ? 'scale-y-50' : '' // Scale effect when crouching
           }`}
           style={{
+            left: `${DINO_LEFT_POSITION}px`,
             bottom: `${GROUND_HEIGHT + dinoY}px`,
             width: `${dinoWidth}px`,
             height: `${dinoHeight}px`,
@@ -39,13 +40,15 @@ const DinoGame: React.FC = () => {
           }}
         />
         {/* Obstacle */}
-        <div
-          className="absolute bottom-0 bg-red-500"
+        <img
+          src={currentObstacle.image}
+          alt="Obstacle"
+          className="absolute bottom-0"
           style={{
             left: `${obstacleX}px`,
             bottom: `${GROUND_HEIGHT}px`,
-            width: `${OBSTACLE_WIDTH}px`,
-            height: `${obstacleHeight}px`,
+            width: `${currentObstacle.width}px`,
+            height: `${currentObstacle.height}px`,
           }}
         />
       </div>
