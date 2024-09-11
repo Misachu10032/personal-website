@@ -1,14 +1,12 @@
 import { NextResponse } from 'next/server';
 import { S3 } from 'aws-sdk';
 
-// Initialize S3 with your credentials and region
 const s3 = new S3({
   region: 'us-east-2',
   accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
 });
 
-// Define the response structure
 interface S3Object {
   Key: string;
 }
@@ -24,13 +22,18 @@ export async function GET() {
         const url = s3.getSignedUrl('getObject', {
           Bucket: 'john-photo',
           Key: item.Key,
-          Expires: 60 * 5, // URL expires in 5 minutes
+          Expires: 60 , // URL expires in 5 minutes
         });
         return url;
       })
     );
 
-    return NextResponse.json(imageUrls);
+    const response = NextResponse.json(imageUrls);
+
+    // Set cache-control headers to prevent caching
+    response.headers.set('Cache-Control', 'no-store, max-age=0, must-revalidate');
+
+    return response;
   } catch (error) {
     console.error('Error fetching photos:', error);
     return NextResponse.json(
