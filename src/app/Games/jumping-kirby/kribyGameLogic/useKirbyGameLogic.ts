@@ -1,25 +1,24 @@
-// useDinoGameLogic.ts
+// useKirbyGameLogic.ts
 import { useState, useEffect, useCallback } from 'react';
 import {
-  GROUND_HEIGHT,
-  DINO_INITIAL_WIDTH,
-  DINO_INITIAL_HEIGHT,
-  DINO_CROUCHED_WIDTH,
-  DINO_CROUCHED_HEIGHT,
+  KIRBY_INITIAL_WIDTH,
+  KIRBY_INITIAL_HEIGHT,
+  KIRBY_CROUCHED_WIDTH,
+  KIRBY_CROUCHED_HEIGHT,
   OBSTACLE_WIDTH,
   MIN_OBSTACLE_HEIGHT,
   MAX_OBSTACLE_HEIGHT,
-  DINO_LEFT_POSITION,
+  KIRBY_LEFT_POSITION,
   OBSTACLE_START_X,
 } from './gameConfig';
 import { generateObstacle, ObstacleType } from './obstacleUtils';
 
-export const useDinoGameLogic = () => {
+export const useKirbyGameLogic = () => {
   const [currentObstacle, setCurrentObstacle] =
     useState<ObstacleType>(generateObstacle());
-  const [dinoY, setDinoY] = useState<number>(0);
-  const [dinoWidth, setDinoWidth] = useState<number>(DINO_INITIAL_WIDTH);
-  const [dinoHeight, setDinoHeight] = useState<number>(DINO_INITIAL_HEIGHT);
+  const [kirbyY, setKirbyY] = useState<number>(0);
+  const [kirbyWidth, setKirbyWidth] = useState<number>(KIRBY_INITIAL_WIDTH);
+  const [kirbyHeight, setKirbyHeight] = useState<number>(KIRBY_INITIAL_HEIGHT);
 
   const [obstacleX, setObstacleX] = useState<number>(OBSTACLE_START_X);
   const [obstacleHeight, setObstacleHeight] =
@@ -35,24 +34,24 @@ export const useDinoGameLogic = () => {
       let jumpDuration = 0;
       const jumpInterval = setInterval(() => {
         if (jumpDuration < 100) {
-          setDinoY((prev) => prev + 10);
+          setKirbyY((prev) => prev + 10);
           jumpDuration += 10;
         } else if (jumpDuration < 245) {
-          setDinoY((prev) => prev + 7);
+          setKirbyY((prev) => prev + 7);
           jumpDuration += 7;
         } else if (jumpDuration < 250) {
-          setDinoY((prev) => prev + 2);
+          setKirbyY((prev) => prev + 2);
           jumpDuration += 2;
         } else if (jumpDuration < 255) {
-          setDinoY((prev) => prev - 2);
+          setKirbyY((prev) => prev - 2);
           jumpDuration += 2;
         } else if (jumpDuration < 500) {
-          setDinoY((prev) => prev - 7);
+          setKirbyY((prev) => prev - 7);
           jumpDuration += 7;
         } else {
           clearInterval(jumpInterval);
           setIsJumping(false);
-          setDinoY(0);
+          setKirbyY(0);
         }
       }, 20);
     }
@@ -61,16 +60,16 @@ export const useDinoGameLogic = () => {
   const crouch = useCallback(() => {
     if (!isCrouching) {
       setIsCrouching(true);
-      setDinoWidth(DINO_CROUCHED_WIDTH);
-      setDinoHeight(DINO_CROUCHED_HEIGHT);
+      setKirbyWidth(KIRBY_CROUCHED_WIDTH);
+      setKirbyHeight(KIRBY_CROUCHED_HEIGHT);
     }
   }, [isCrouching]);
 
   const stand = useCallback(() => {
     if (isCrouching) {
       setIsCrouching(false);
-      setDinoWidth(DINO_INITIAL_WIDTH);
-      setDinoHeight(DINO_INITIAL_HEIGHT);
+      setKirbyWidth(KIRBY_INITIAL_WIDTH);
+      setKirbyHeight(KIRBY_INITIAL_HEIGHT);
     }
   }, [isCrouching]);
 
@@ -95,33 +94,38 @@ export const useDinoGameLogic = () => {
 
   useEffect(() => {
     if (!gameOver) {
-      const dinoBottom = dinoY + dinoHeight;  // Dino's bottom is its Y position + its height
-      const dinoTop = dinoY;  // Dino's top is just its Y position
-      const dinoLeft = DINO_LEFT_POSITION;
-      const dinoRight = dinoLeft + dinoWidth;
-  
-      const obstacleBottom = currentObstacle.yOffset + currentObstacle.height;  // Obstacle's bottom is its Y offset + its height
-      const obstacleTop = currentObstacle.yOffset;  // Obstacle's top is its Y offset
-      const obstacleLeft = obstacleX;  // Obstacle's left position
-      const obstacleRight = obstacleX + currentObstacle.width;  // Obstacle's right position
-  
-  console.log(dinoBottom,obstacleTop)
-  console.log(dinoTop,obstacleBottom
-    
-  )
+      const kirbyBottom = kirbyY + kirbyHeight; // Kirby's bottom is its Y position + its height
+      const kirbyTop = kirbyY; // Kirby's top is just its Y position
+      const kirbyLeft = KIRBY_LEFT_POSITION;
+      const kirbyRight = kirbyLeft + kirbyWidth;
+
+      const obstacleBottom = currentObstacle.yOffset + currentObstacle.height; // Obstacle's bottom is its Y offset + its height
+      const obstacleTop = currentObstacle.yOffset; // Obstacle's top is its Y offset
+      const obstacleLeft = obstacleX; // Obstacle's left position
+      const obstacleRight = obstacleX + currentObstacle.width; // Obstacle's right position
+
+      // console.log(kirbyBottom, obstacleTop);
+      console.log(kirbyTop, obstacleBottom,currentObstacle.height,currentObstacle.yOffset);
       // Check for collision
       const isCollision =
-        dinoRight > obstacleLeft && // Dino's right side passes the obstacle's left side
-        dinoLeft < obstacleRight && // Dino's left side is before the obstacle's right side
-        dinoBottom > obstacleTop && // Dino's bottom is below the obstacle's top (collision from above)
-        dinoTop < obstacleBottom;   // Dino's top is above the obstacle's bottom (collision from below)
-  
+        kirbyRight > obstacleLeft && // Kirby's right side passes the obstacle's left side
+        kirbyLeft < obstacleRight && // Kirby's left side is before the obstacle's right side
+        kirbyBottom > obstacleTop && // Kirby's bottom is below the obstacle's top (collision from above)
+        kirbyTop < obstacleBottom; // Kirby's top is above the obstacle's bottom (collision from below)
+
       if (isCollision) {
         setGameOver(true);
       }
     }
-  }, [obstacleX, dinoY, dinoHeight, dinoWidth, gameOver, currentObstacle, DINO_LEFT_POSITION]);
-  
+  }, [
+    obstacleX,
+    kirbyY,
+    kirbyHeight,
+    kirbyWidth,
+    gameOver,
+    currentObstacle,
+    KIRBY_LEFT_POSITION,
+  ]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -163,9 +167,9 @@ export const useDinoGameLogic = () => {
   }, [crouch, stand]);
 
   const resetGame = () => {
-    setDinoY(0);
-    setDinoWidth(DINO_INITIAL_WIDTH);
-    setDinoHeight(DINO_INITIAL_HEIGHT);
+    setKirbyY(0);
+    setKirbyWidth(KIRBY_INITIAL_WIDTH);
+    setKirbyHeight(KIRBY_INITIAL_HEIGHT);
     setObstacleX(OBSTACLE_START_X);
     setObstacleHeight(
       Math.random() * (MAX_OBSTACLE_HEIGHT - MIN_OBSTACLE_HEIGHT) +
@@ -178,9 +182,9 @@ export const useDinoGameLogic = () => {
   };
 
   return {
-    dinoY,
-    dinoWidth,
-    dinoHeight,
+    kirbyY,
+    kirbyWidth,
+    kirbyHeight,
     obstacleX,
     obstacleHeight,
     isJumping,

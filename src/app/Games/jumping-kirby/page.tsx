@@ -1,14 +1,14 @@
 "use client"
 import React from 'react';
-import { useDinoGameLogic } from './useDinoGameLogic';
-import { GROUND_HEIGHT, VISUAL_SCALE, DINO_LEFT_POSITION } from './gameConfig';
-import { ObstacleType } from './obstacleUtils';
+import { useKirbyGameLogic } from './kribyGameLogic/useKirbyGameLogic';
+import { GROUND_HEIGHT, VISUAL_SCALE, KIRBY_LEFT_POSITION } from './kribyGameLogic/gameConfig';
+import { ObstacleType } from './kribyGameLogic/obstacleUtils';
 
-const DinoGame: React.FC = () => {
+const KirbyGame: React.FC = () => {
   const {
-    dinoY,
-    dinoWidth,
-    dinoHeight,
+    kirbyY,
+    kirbyWidth,
+    kirbyHeight,
     obstacleX,
     obstacleHeight,
     isCrouching,
@@ -18,7 +18,7 @@ const DinoGame: React.FC = () => {
     jump,
     resetGame,
     currentObstacle,
-  } = useDinoGameLogic();
+  } = useKirbyGameLogic();
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -32,10 +32,10 @@ const DinoGame: React.FC = () => {
             isCrouching ? 'scale-y-50' : '' // Scale effect when crouching
           }`}
           style={{
-            left: `${DINO_LEFT_POSITION}px`,
-            bottom: `${GROUND_HEIGHT + dinoY}px`,
-            width: `${dinoWidth}px`,
-            height: `${dinoHeight}px`,
+            left: `${KIRBY_LEFT_POSITION}px`,
+            bottom: `${GROUND_HEIGHT + kirbyY}px`,
+            width: `${kirbyWidth}px`,
+            height: `${kirbyHeight}px`,
             transform: `scale(${VISUAL_SCALE})`,
           }}
         />
@@ -69,4 +69,4 @@ const DinoGame: React.FC = () => {
   );
 };
 
-export default DinoGame;
+export default KirbyGame;
