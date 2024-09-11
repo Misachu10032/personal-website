@@ -2,7 +2,7 @@
 import React from 'react';
 import { useKirbyGameLogic } from './kribyGameLogic/useKirbyGameLogic';
 import { GROUND_HEIGHT, VISUAL_SCALE, KIRBY_LEFT_POSITION } from './kribyGameLogic/gameConfig';
-import { ObstacleType } from './kribyGameLogic/obstacleUtils';
+
 
 const KirbyGame: React.FC = () => {
   const {
@@ -10,12 +10,9 @@ const KirbyGame: React.FC = () => {
     kirbyWidth,
     kirbyHeight,
     obstacleX,
-    obstacleHeight,
     isCrouching,
     gameOver,
-    OBSTACLE_WIDTH,
     score,
-    jump,
     resetGame,
     currentObstacle,
   } = useKirbyGameLogic();
@@ -26,10 +23,16 @@ const KirbyGame: React.FC = () => {
       <div className="relative w-full h-64 border-b-2 border-gray-400 dark:border-gray-600">
         {/* Kirby */}
         <img
-          src={isCrouching ? "/Games/Kirby/Kirby-crouching.png" : "/Games/Kirby/Kirby-running.gif"}
+          src={
+            gameOver
+              ? "/Games/Kirby/Kirby-GameOver.png"
+              : isCrouching
+              ? "/Games/Kirby/Kirby-crouching.png"
+              : "/Games/Kirby/Kirby-running.gif"
+          }
           alt="Kirby"
           className={`absolute transition-transform duration-150 ${
-            isCrouching ? 'scale-y-50' : '' // Scale effect when crouching
+            isCrouching && !gameOver ? 'scale-y-50' : '' // Scale effect when crouching and not game over
           }`}
           style={{
             left: `${KIRBY_LEFT_POSITION}px`,

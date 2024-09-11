@@ -1,22 +1,21 @@
 // useKirbyGameLogic.ts
 import { useEffect, useState } from 'react';
-import { KIRBY_INITIAL_HEIGHT, KIRBY_INITIAL_WIDTH, KIRBY_LEFT_POSITION } from './gameConfig';
+import { KIRBY_INITIAL_HEIGHT, KIRBY_INITIAL_WIDTH, } from './gameConfig';
 import { useKirbyMovement } from './useKirbyMovement';
 import { useObstacleLogic } from './useObtacleLogic'; 
 import { useCollisionLogic } from './useCollisionLogic';
 
 export const useKirbyGameLogic = () => {
   const { kirbyY, kirbyWidth, kirbyHeight, isJumping, isCrouching, jump, crouch, stand, setKirbyY,setIsJumping,setIsCrouching,setKirbyWidth,setKirbyHeight } = useKirbyMovement();
-  const { currentObstacle, obstacleX, updateObstacle,resetObstacle } = useObstacleLogic();
+  const { currentObstacle, obstacleX, updateObstacle,resetObstacle ,score,setScore } = useObstacleLogic();
 
   const [gameOver, setGameOver] = useState<boolean>(false);
-  const [score, setScore] = useState<number>(0);
-  const incrementScore = () => setScore((prevScore) => prevScore + 1);
+
+
   useEffect(() => {
     const gameLoop = setInterval(() => {
       if (!gameOver) {
         updateObstacle();
-        incrementScore();
       }
     }, 20);
 
