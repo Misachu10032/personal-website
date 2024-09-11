@@ -22,7 +22,7 @@ export async function GET() {
         const url = s3.getSignedUrl('getObject', {
           Bucket: 'john-photo',
           Key: item.Key,
-          Expires: 60 , // URL expires in 5 minutes
+
         });
         return url;
       })
