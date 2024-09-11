@@ -9,4 +9,4 @@ export const MIN_OBSTACLE_HEIGHT = 20;
 export const MAX_OBSTACLE_HEIGHT = 60;
 export const VISUAL_SCALE = 1.5;
 export const KIRBY_LEFT_POSITION = 100; // Dino's horizontal position
-export const OBSTACLE_START_X=1400;
+export const OBSTACLE_START_X=1350;

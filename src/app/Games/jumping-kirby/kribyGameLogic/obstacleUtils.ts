@@ -6,8 +6,8 @@ export interface ObstacleType {
   }
   
   const obstacles: ObstacleType[] = [
-    { width: 80, height: 80, image: '/Games/Kirby/Obstacle/dino-long-axe.png', yOffset:10 },
-    { width: 100, height: 80, image: '/Games/Kirby/Obstacle/dino-helicopter.png', yOffset:10 },
+    { width: 80, height: 80, image: '/Games/Kirby/Obstacle/dino-long-axe.png', yOffset:0 },
+    { width: 100, height: 80, image: '/Games/Kirby/Obstacle/dino-helicopter.png', yOffset:20 },
     { width: 100, height: 80, image: '/Games/Kirby/Obstacle/dino-helicopter.png', yOffset:100 },
     { width: 130, height: 400, image: '/Games/Kirby/Obstacle/dino-helicopters.png', yOffset:40 },
     { width: 100, height: 100, image: '/Games/Kirby/Obstacle/dino-tank.png', yOffset: 0 },
