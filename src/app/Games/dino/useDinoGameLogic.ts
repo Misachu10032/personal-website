@@ -10,18 +10,20 @@ import {
   MIN_OBSTACLE_HEIGHT,
   MAX_OBSTACLE_HEIGHT,
   DINO_LEFT_POSITION,
-  OBSTACLE_START_X
+  OBSTACLE_START_X,
 } from './gameConfig';
 import { generateObstacle, ObstacleType } from './obstacleUtils';
 
 export const useDinoGameLogic = () => {
-    const [currentObstacle, setCurrentObstacle] = useState<ObstacleType>(generateObstacle());
+  const [currentObstacle, setCurrentObstacle] =
+    useState<ObstacleType>(generateObstacle());
   const [dinoY, setDinoY] = useState<number>(0);
   const [dinoWidth, setDinoWidth] = useState<number>(DINO_INITIAL_WIDTH);
   const [dinoHeight, setDinoHeight] = useState<number>(DINO_INITIAL_HEIGHT);
 
   const [obstacleX, setObstacleX] = useState<number>(OBSTACLE_START_X);
-  const [obstacleHeight, setObstacleHeight] = useState<number>(MIN_OBSTACLE_HEIGHT);
+  const [obstacleHeight, setObstacleHeight] =
+    useState<number>(MIN_OBSTACLE_HEIGHT);
   const [isJumping, setIsJumping] = useState<boolean>(false);
   const [isCrouching, setIsCrouching] = useState<boolean>(false);
   const [gameOver, setGameOver] = useState<boolean>(false);
@@ -30,17 +32,23 @@ export const useDinoGameLogic = () => {
   const jump = useCallback(() => {
     if (!isJumping) {
       setIsJumping(true);
-      let jumpHeight = 0;
+      let jumpDuration = 0;
       const jumpInterval = setInterval(() => {
-        if (jumpHeight < 100) {
+        if (jumpDuration < 100) {
           setDinoY((prev) => prev + 10);
-          jumpHeight += 10;
-        } else if (jumpHeight < 200) {
+          jumpDuration += 10;
+        } else if (jumpDuration < 245) {
           setDinoY((prev) => prev + 7);
-          jumpHeight += 7;
-        } else if (jumpHeight < 400) {
+          jumpDuration += 7;
+        } else if (jumpDuration < 250) {
+          setDinoY((prev) => prev + 2);
+          jumpDuration += 2;
+        } else if (jumpDuration < 255) {
+          setDinoY((prev) => prev - 2);
+          jumpDuration += 2;
+        } else if (jumpDuration < 500) {
           setDinoY((prev) => prev - 7);
-          jumpHeight += 7;
+          jumpDuration += 7;
         } else {
           clearInterval(jumpInterval);
           setIsJumping(false);
@@ -87,65 +95,69 @@ export const useDinoGameLogic = () => {
 
   useEffect(() => {
     if (!gameOver) {
-      const dinoBottom = dinoY + dinoHeight;
+      const dinoBottom = dinoY + dinoHeight;  // Dino's bottom is its Y position + its height
+      const dinoTop = dinoY;  // Dino's top is just its Y position
       const dinoLeft = DINO_LEFT_POSITION;
       const dinoRight = dinoLeft + dinoWidth;
-      const obstacleBottom = GROUND_HEIGHT + currentObstacle.height;
-      const obstacleLeft = obstacleX;
-      const obstacleRight = obstacleX + currentObstacle.width;
-
+  
+      const obstacleBottom = currentObstacle.yOffset + currentObstacle.height;  // Obstacle's bottom is its Y offset + its height
+      const obstacleTop = currentObstacle.yOffset;  // Obstacle's top is its Y offset
+      const obstacleLeft = obstacleX;  // Obstacle's left position
+      const obstacleRight = obstacleX + currentObstacle.width;  // Obstacle's right position
+  
+  console.log(dinoBottom,obstacleTop)
+  console.log(dinoTop,obstacleBottom
+    
+  )
+      // Check for collision
       const isCollision =
-        obstacleRight > dinoLeft &&
-        obstacleLeft < dinoRight &&
-        dinoBottom > GROUND_HEIGHT &&
-        dinoY < obstacleBottom;
-
+        dinoRight > obstacleLeft && // Dino's right side passes the obstacle's left side
+        dinoLeft < obstacleRight && // Dino's left side is before the obstacle's right side
+        dinoBottom > obstacleTop && // Dino's bottom is below the obstacle's top (collision from above)
+        dinoTop < obstacleBottom;   // Dino's top is above the obstacle's bottom (collision from below)
+  
       if (isCollision) {
         setGameOver(true);
       }
     }
-  }, [obstacleX, dinoY, dinoHeight, dinoWidth, gameOver, currentObstacle]);
+  }, [obstacleX, dinoY, dinoHeight, dinoWidth, gameOver, currentObstacle, DINO_LEFT_POSITION]);
+  
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.code === 'Space') {
         jump();
-    
-      } 
+        console.log('jump');
+      }
     };
-
 
     window.addEventListener('keydown', handleKeyPress);
 
-
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
-
     };
   }, [jump]);
 
-
   useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-
-    if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
+    const handleCrouch = (e: KeyboardEvent) => {
+      if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
         crouch();
-
+        console.log('crouch');
       }
     };
 
     const handleKeyRelease = (e: KeyboardEvent) => {
       if (e.code === 'ControlLeft' || e.code === 'ControlRight') {
         stand();
- 
+        console.log('stand');
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
+    window.addEventListener('keydown', handleCrouch);
     window.addEventListener('keyup', handleKeyRelease);
 
     return () => {
-      window.removeEventListener('keydown', handleKeyPress);
+      window.removeEventListener('keydown', handleCrouch);
       window.removeEventListener('keyup', handleKeyRelease);
     };
   }, [crouch, stand]);
@@ -178,6 +190,6 @@ export const useDinoGameLogic = () => {
     OBSTACLE_WIDTH,
     jump,
     resetGame,
-    currentObstacle
+    currentObstacle,
   };
 };

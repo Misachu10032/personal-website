@@ -22,11 +22,11 @@ const DinoGame: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <h1 className="text-4xl font-bold mb-4">Jumping Kirby Game</h1>
+   
       <div className="relative w-full h-64 border-b-2 border-gray-400 dark:border-gray-600">
         {/* Kirby */}
         <img
-          src="/Games/Kirby/Kirby-running.gif"
+          src={isCrouching ? "/Games/Kirby/Kirby-crouching.png" : "/Games/Kirby/Kirby-running.gif"}
           alt="Kirby"
           className={`absolute transition-transform duration-150 ${
             isCrouching ? 'scale-y-50' : '' // Scale effect when crouching
@@ -43,10 +43,10 @@ const DinoGame: React.FC = () => {
         <img
           src={currentObstacle.image}
           alt="Obstacle"
-          className="absolute bottom-0"
+          className="absolute"
           style={{
             left: `${obstacleX}px`,
-            bottom: `${GROUND_HEIGHT}px`,
+            bottom: `${ currentObstacle.yOffset}px`,
             width: `${currentObstacle.width}px`,
             height: `${currentObstacle.height}px`,
           }}

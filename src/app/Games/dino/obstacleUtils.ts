@@ -6,12 +6,13 @@ export interface ObstacleType {
   }
   
   const obstacles: ObstacleType[] = [
-    // { width: 30, height: 40, image: '/Games/Kirby/obstacle-small.png', yOffset: 0 },
-    // { width: 40, height: 60, image: '/Games/Kirby/obstacle-medium.png', yOffset: 0 },
-    // { width: 50, height: 80, image: '/Games/Kirby/obstacle-large.png', yOffset: 0 },
-    // { width: 30, height: 30, image: '/Games/Kirby/obstacle-float1.png', yOffset: 50 },
-    // { width: 40, height: 40, image: '/Games/Kirby/obstacle-float2.png', yOffset: 70 },
-    { width: 30, height: 40, image: '/Games/Kirby/dino.png', yOffset: 0 },
+    { width: 80, height: 80, image: '/Games/Kirby/Obstacle/dino-long-axe.png', yOffset:10 },
+    { width: 100, height: 80, image: '/Games/Kirby/Obstacle/dino-helicopter.png', yOffset:10 },
+    { width: 100, height: 80, image: '/Games/Kirby/Obstacle/dino-helicopter.png', yOffset:100 },
+    { width: 130, height: 400, image: '/Games/Kirby/Obstacle/dino-helicopters.png', yOffset:40 },
+    { width: 100, height: 100, image: '/Games/Kirby/Obstacle/dino-tank.png', yOffset: 0 },
+    { width: 100, height: 60, image: '/Games/Kirby/Obstacle/two-dinos.png', yOffset: 0 },
+    { width: 60, height: 80, image: '/Games/Kirby/Obstacle/dino.png', yOffset: 0 },
   ];
   
   export const generateObstacle = (): ObstacleType => {
