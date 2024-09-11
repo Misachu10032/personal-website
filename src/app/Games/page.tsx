@@ -12,14 +12,19 @@ const GamesPage: React.FC = () => {
             <h2 className="text-xl font-semibold">Snake</h2>
           </div>
         </Link>
-        <Link href="/Games/dino">
+        <Link href="/Games/jumping-kirby">
           <div className="bg-gray-200 dark:bg-gray-700 p-4 rounded-lg text-center cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
-            <h2 className="text-xl font-semibold">Jumping Dino</h2>
+            <h2 className="text-xl font-semibold">Jumping Kriby</h2>
           </div>
         </Link>
         <Link href="/Games/tetris">
           <div className="bg-gray-200 dark:bg-gray-700 p-4 rounded-lg text-center cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
             <h2 className="text-xl font-semibold">Tetris</h2>
+          </div>
+        </Link>
+        <Link href="/Games/touhou">
+          <div className="bg-gray-200 dark:bg-gray-700 p-4 rounded-lg text-center cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+            <h2 className="text-xl font-semibold">touhou</h2>
           </div>
         </Link>
       </div>
