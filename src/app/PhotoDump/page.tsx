@@ -9,7 +9,7 @@ const ImageGallery: React.FC = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('/api/fetchPhotos',{ cache: 'no-store' }); // Adjust this endpoint to your API
+        const response = await fetch('/api/fetchPhotos',{ next: { revalidate: 0 }}); // Adjust this endpoint to your API
         const data: Array<string> = await response.json();
         console.log('Fetched image URLs:', data);
         setImages(data);
