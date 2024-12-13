@@ -22,7 +22,9 @@
       "Project3": "Retro Games",
       "Project3Description": "Games you played as a kid",
       "Project4": "Chat Room",
-      "Project4Description": "A simple live chat room"
+      "Project4Description": "A simple live chat room",
+      "Project5": "VEX IQ score calculator",
+      "Project5Description": "A calculator made for westernmech robotic club"
     },
     "socials": {
       "GitHub": "GitHub",
