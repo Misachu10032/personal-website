@@ -129,7 +129,7 @@ export default function ScoreDisplay() {
             type="number"
             value={goals}
             onChange={(e) => setGoals(Number(e.target.value))}
-            className="w-full p-2 text-black rounded"
+            className="w-full p-2 text-black bg-white rounded"
           />
         </div>
         <div>
@@ -140,7 +140,7 @@ export default function ScoreDisplay() {
             type="number"
             value={clearedSwitches}
             onChange={(e) => setClearedSwitches(Number(e.target.value))}
-            className="w-full p-2 text-black rounded"
+            className="w-full p-2 text-black bg-white rounded"
           />
         </div>
         {isTeamRule && (
@@ -150,7 +150,7 @@ export default function ScoreDisplay() {
               type="number"
               value={passes}
               onChange={(e) => setPasses(Number(e.target.value))}
-              className="w-full p-2 text-black rounded"
+              className="w-full p-2 text-black bg-white rounded"
             />
           </div>
         )}
