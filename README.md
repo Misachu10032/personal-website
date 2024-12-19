@@ -22,6 +22,7 @@ This is a personal website project built with Next.js, React, and TypeScript. It
 - AWS SDK for S3 integration
 - Material-UI icons
 
+
 ## Getting Started
 
 1. Clone the repository:
