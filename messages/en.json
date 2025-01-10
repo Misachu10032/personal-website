@@ -24,7 +24,9 @@
       "Project4": "Chat Room",
       "Project4Description": "A simple live chat room",
       "Project5": "VEX IQ score calculator",
-      "Project5Description": "A calculator made for westernmech robotic club"
+      "Project5Description": "A calculator made for westernmech robotic club",
+      "Project6": "Badminton League",
+      "Project6Description": "A ranking system for local badminton club"
     },
     "socials": {
       "GitHub": "GitHub",

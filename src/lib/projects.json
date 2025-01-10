@@ -34,6 +34,13 @@
       "description": "Project5Description",
       "imageSrc": "/projectsCover/VexIQCalculator.png",
       "url": "VexIQ-Calculator"
+    },
+    {
+      "id": "6",
+      "title": "Project6",
+      "description": "Project6Description",
+      "imageSrc": "/projectsCover/BadmintonLeague.png",
+      "url": "https://badminton-league.vercel.app"
     }
   ]
 }
