@@ -5,8 +5,8 @@ import * as Select from '@radix-ui/react-select';
 import clsx from 'clsx';
 import { useTransition } from 'react';
 import { useTheme } from 'next-themes';
-import { Locale } from '@/config';
-import { setUserLocale } from '@/services/locale';
+import { Locale } from '@/i18n/config';
+import { setUserLocale } from '@/i18n/services/locale';
 
 type Props = {
   defaultValue: string;
