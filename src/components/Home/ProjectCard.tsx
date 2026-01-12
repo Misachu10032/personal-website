@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 
-// Define the prop types
 interface ProjectCardProps {
   img: string;
   name: string;
@@ -17,42 +16,48 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const t = useTranslations('HomePage.ProjectCard');
 
-  const handleClick = () => {
-    const isExternal = /^https?:\/\//.test(url); // Check if the URL is external
-    if (isExternal) {
-      window.open(url); // Open external URL in a new tab
-    } else {
-      const hostUrl = new URL(window.location.href);
-      console.log(hostUrl);
-      window.open(`${hostUrl.origin}/${url}`);
-    }
-  };
+  const isExternal = /^https?:\/\//.test(url);
+  const href = isExternal ? url : `/${url}`;
 
   return (
-    <div
-      className="overflow-hidden rounded-lg p-2 laptop:p-4"
-      onClick={handleClick}
+    <a
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      className="
+        group block rounded-2xl border border-black/5 bg-white
+        p-3 laptop:p-4
+        transition-all duration-300
+        hover:-translate-y-1 hover:shadow-lg
+      "
     >
-      <div className="relative rounded-lg overflow-hidden transition-all ease-out duration-300 h-96">
+      {/* Image */}
+      <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-black/5">
         <img
-          alt={name}
-          className="h-full w-full object-cover hover:scale-110 transition-all ease-out duration-300"
           src={img}
+          alt={name}
+          className="
+            h-full w-full object-contain
+            transition-transform duration-500
+            group-hover:scale-105
+          "
         />
+
+        {/* subtle gradient overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
       </div>
 
-      <button
-        type="button"
-        onClick={handleClick}
-        className="mt-5 text-xl laptop:text-3xl  font-medium"
-      >
-        {name && t(name)}
-      </button>
+      {/* Text */}
+      <div className="mt-4 space-y-1">
+        <h3 className="text-xl laptop:text-2xl font-semibold leading-tight">
+          {name && t(name)}
+        </h3>
 
-      <h2 className="text-lg laptop:text-xl  opacity-50">
-        {description && t(description)}
-      </h2>
-    </div>
+        <p className="text-sm laptop:text-base text-black/60">
+          {description && t(description)}
+        </p>
+      </div>
+    </a>
   );
 };
 

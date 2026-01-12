@@ -13,7 +13,6 @@
     "projectTitle": "Projects",
     "aboutTitle": "About",
     "aboutContent": "If you find some of projects interesting or you have some interesting projects, drop a message through the socials to work together.",
-
     "ProjectCard": {
       "Project1": "Canadian Wildlife",
       "Project1Description": "Hiking photo dumps",
@@ -26,7 +25,13 @@
       "Project5": "VEX IQ score calculator",
       "Project5Description": "A calculator made for westernmech robotic club",
       "Project6": "Badminton League",
-      "Project6Description": "A ranking system for local badminton club"
+      "Project6Description": "A ranking system for local badminton club",
+      "Project7": "Ai Predictive Maintainence Dashboard",
+      "Project7Description": "Grand Prize-winning project at the Raise x Skillsproject Hackathon",
+      "Project8": "Badminton Tactic Drawing Board",
+      "Project8Description": "I really love playing badminton",
+      "Project9": "Badminton Score & Team Dashboard",
+      "Project9Description": "A dashboard for tracking match scores and managing team planning for a local badminton club."
     },
     "socials": {
       "GitHub": "GitHub",

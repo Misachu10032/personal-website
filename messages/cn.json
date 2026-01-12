@@ -13,7 +13,6 @@
     "projectTitle": "项目",
     "aboutTitle": "关于",
     "aboutContent": "如果你觉得我的一些项目很有趣，或者你有一些有趣的项目想一起合作，欢迎勾搭。",
-
     "ProjectCard": {
       "Project1": "加拿大风景",
       "Project1Description": "徒步旅行照片集",
@@ -26,7 +25,13 @@
       "Project5": "VEX IQ 记分器",
       "Project5Description": "给撘机器人的小孩子们做的记分器",
       "Project6": "羽球排位",
-      "Project6Description": "一个给羽球俱乐部写的排位系统"
+      "Project6Description": "一个给羽球俱乐部写的排位系统",
+      "Project7": "智能维修预测表",
+      "Project7Description": "Raise x Skillsproject Hackathon 一等奖作品",
+            "Project8": "羽毛球战术小画板",
+      "Project8Description": "我是真的爱打羽球",
+      "Project9": "比赛计分面板",
+      "Project9Description": "帮羽球群群主干的活"
     },
     "socials": {
       "GitHub": "GitHub",

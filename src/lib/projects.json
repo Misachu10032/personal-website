@@ -1,5 +1,12 @@
 {
   "projects": [
+        {
+      "id": "7",
+      "title": "Project7",
+      "description": "Project7Description",
+      "imageSrc": "/projectsCover/aiPredictiveMaintainenceDashboard.png",
+      "url": "https://github.com/JZ-Zhou-UofC/SkillsProject-Hackathon-John"
+    },
     {
       "id": "1",
       "title": "Project1",
@@ -7,13 +14,7 @@
       "imageSrc": "/projectsCover/CanadianWildLife.jpg",
       "url": "PhotoDump"
     },
-    {
-      "id": "2",
-      "title": "Project2",
-      "description": "Project2Description",
-      "imageSrc": "/projectsCover/HomeKaraoke.jpg",
-      "url": "https://github.com/Misachu10032/Home-Karaoke"
-    },
+
     {
       "id": "3",
       "title": "Project3",
@@ -26,7 +27,7 @@
       "title": "Project4",
       "description": "Project4Description",
       "imageSrc": "/projectsCover/UnderConstruction.jpg",
-      "url": "https://github.com/Misachu10032/Home-Karaoke"
+      "url": "https://github.com/Misachu10032"
     },
     {
       "id": "5",
@@ -41,6 +42,27 @@
       "description": "Project6Description",
       "imageSrc": "/projectsCover/BadmintonLeague.png",
       "url": "https://badminton-league.vercel.app"
+    },
+        {
+      "id": "2",
+      "title": "Project2",
+      "description": "Project2Description",
+      "imageSrc": "/projectsCover/HomeKaraoke.jpg",
+      "url": "https://github.com/Misachu10032/Home-Karaoke"
+    },
+            {
+      "id": "8",
+      "title": "Project8",
+      "description": "Project8Description",
+      "imageSrc": "/projectsCover/badminton-debrief.png",
+      "url": "https://github.com/Misachu10032/badminton-debrief"
+    },
+                {
+      "id": "9",
+      "title": "Project9",
+      "description": "Project9Description",
+      "imageSrc": "/projectsCover/match-planning.png",
+      "url": "https://github.com/Misachu10032/Match-Planning"
     }
   ]
 }
