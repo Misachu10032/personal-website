@@ -1,59 +1,68 @@
 'use client';
+
 import Header from '@/components/Home/Header';
 import ProjectCard from '@/components/Home/ProjectCard';
-import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
-import projectData from '@/lib/projects.json';
-import { scrollToSection } from '../utils/scrollToSection';
 import Introduction from '@/components/Home/Introduction';
 import Socials from '@/components/Home/Socials';
 
+import { useTranslations } from 'next-intl';
+import { useRef } from 'react';
+
+import projectData from '@/lib/projects.json';
+
+const SECTION_CLASS = 'mt-10 laptop:mt-20 p-4 laptop:p-0';
+
 export default function HomePage() {
   const t = useTranslations('HomePage');
+
+  const topRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
-  const topRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <>
-      <Header topRef={topRef} aboutRef={aboutRef} projectRef={projectRef} />
-      <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={topRef}>
+      <Header
+        topRef={topRef}
+        aboutRef={aboutRef}
+        projectRef={projectRef}
+      />
+
+      <main ref={topRef} className={SECTION_CLASS}>
         <Introduction />
         <Socials />
-      </div>
+      </main>
 
-      <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={projectRef}>
-        <h1 className="text-4xl mx-3 font-extrabold shadow-md bg-clip-text">
+      <section ref={projectRef} className={SECTION_CLASS}>
+        <h2 className="mx-3 text-4xl font-extrabold">
           {t('projectTitle')}
-        </h1>
+        </h2>
+
         <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
           {projectData.projects.map((project) => (
             <ProjectCard
               key={project.id}
-              img={project.imageSrc}
-              name={project.title}
+              imageSrc={project.imageSrc}
+              title={project.title}
               description={project.description}
               url={project.url}
             />
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="mt-10 laptop:mt-20 p-4 laptop:p-0" ref={aboutRef}>
-        <h1 className="text-4xl mx-3 font-extrabold shadow-md bg-clip-text">
+      <section ref={aboutRef} className={SECTION_CLASS}>
+        <h2 className="mx-3 text-4xl font-extrabold">
           {t('aboutTitle')}
-        </h1>
-        <p className="mt-2 mx-3 text-xl laptop:text-2xl">{t('aboutContent')}</p>
-      </div>
+        </h2>
 
-      <Socials />
+        <p className="mt-2 mx-3 text-xl laptop:text-2xl">
+          {t('aboutContent')}
+        </p>
+      </section>
+
+      <footer className={SECTION_CLASS}>
+        <Socials />
+      </footer>
     </>
   );
 }

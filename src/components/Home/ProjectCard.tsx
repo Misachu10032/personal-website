@@ -1,64 +1,95 @@
-import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 interface ProjectCardProps {
-  img: string;
-  name: string;
+  imageSrc: string;
+  title: string;
   description: string;
   url: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
-  img,
-  name,
+export default function ProjectCard({
+  imageSrc,
+  title,
   description,
   url,
-}) => {
+}: ProjectCardProps) {
   const t = useTranslations('HomePage.ProjectCard');
 
   const isExternal = /^https?:\/\//.test(url);
-  const href = isExternal ? url : `/${url}`;
 
-  return (
-    <a
-      href={href}
-      target={isExternal ? '_blank' : undefined}
-      rel={isExternal ? 'noopener noreferrer' : undefined}
+  const content = (
+    <article
       className="
-        group block rounded-2xl border border-black/5 bg-white
+        group rounded-2xl border
+        border-black/5 dark:border-white/10
+        bg-white dark:bg-neutral-900
         p-3 laptop:p-4
         transition-all duration-300
         hover:-translate-y-1 hover:shadow-lg
+        dark:hover:shadow-black/40
       "
     >
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-black/5">
-        <img
-          src={img}
-          alt={name}
+      <div className="
+        relative aspect-[4/3] overflow-hidden rounded-xl
+        bg-black/5 dark:bg-white/5
+      ">
+        <Image
+          src={imageSrc}
+          alt={t(title)}
+          fill
           className="
-            h-full w-full object-contain
+            object-contain
             transition-transform duration-500
             group-hover:scale-105
           "
         />
 
-        {/* subtle gradient overlay */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+        <div className="
+          pointer-events-none absolute inset-0
+          bg-gradient-to-t
+          from-black/10 dark:from-black/40
+          to-transparent
+        " />
       </div>
 
       {/* Text */}
       <div className="mt-4 space-y-1">
-        <h3 className="text-xl laptop:text-2xl font-semibold leading-tight">
-          {name && t(name)}
+        <h3 className="
+          text-xl laptop:text-2xl font-semibold leading-tight
+          text-neutral-900 dark:text-neutral-100
+        ">
+          {t(title)}
         </h3>
 
-        <p className="text-sm laptop:text-base text-black/60">
-          {description && t(description)}
+        <p className="
+          text-sm laptop:text-base
+          text-neutral-600 dark:text-neutral-400
+        ">
+          {t(description)}
         </p>
       </div>
-    </a>
+    </article>
   );
-};
 
-export default ProjectCard;
+  if (isExternal) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={`/${url}`} className="block">
+      {content}
+    </Link>
+  );
+}

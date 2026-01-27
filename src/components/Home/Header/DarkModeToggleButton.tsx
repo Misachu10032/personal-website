@@ -1,23 +1,29 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 
 const DarkModeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
 
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       type="button"
-      className={`transition-all ease-out duration-300 laptop:m-2 p-2 flex items-center rounded-sm
-        ${theme === 'dark' ? 'hover:bg-slate-600' : 'hover:bg-slate-200'} 
-        hover:scale-105 active:scale-100`}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className="
+        m-2 p-2 rounded-md
+        transition-all duration-300
+        hover:scale-105 active:scale-100
+        hover:bg-neutral-200 dark:hover:bg-neutral-700
+      "
+      aria-label="Toggle theme"
     >
-      <img
-        className={`h-6 ${theme === 'dark' ? 'filter invert' : 'text-black'}`}
-        src="/icons/sun.svg"
-        alt="Toggle Dark Mode"
-      />
+      {isDark ? (
+        <SunIcon className="h-6 w-6 text-neutral-200" />
+      ) : (
+        <MoonIcon className="h-6 w-6 text-neutral-800" />
+      )}
     </button>
   );
 };

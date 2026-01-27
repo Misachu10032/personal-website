@@ -4,7 +4,6 @@ import { CheckIcon, LanguageIcon } from '@heroicons/react/24/solid';
 import * as Select from '@radix-ui/react-select';
 import clsx from 'clsx';
 import { useTransition } from 'react';
-import { useTheme } from 'next-themes';
 import { Locale } from '@/i18n/config';
 import { setUserLocale } from '@/i18n/services/locale';
 
@@ -20,7 +19,6 @@ export default function LocaleSwitcherSelect({
   label,
 }: Props) {
   const [isPending, startTransition] = useTransition();
-  const { theme } = useTheme();
 
   function onChange(value: string) {
     const locale = value as Locale;
@@ -35,50 +33,43 @@ export default function LocaleSwitcherSelect({
         <Select.Trigger
           aria-label={label}
           className={clsx(
-            'rounded-sm p-2',
-            theme === 'dark' ? 'hover:bg-slate-600' : 'hover:bg-slate-200',
+            'rounded-sm p-2 transition-colors',
+            'hover:bg-slate-200 dark:hover:bg-slate-600',
             isPending && 'pointer-events-none opacity-60'
           )}
         >
           <Select.Icon>
             <LanguageIcon
-              className={clsx(
-                'h-6 w-6',
-                theme === 'dark' ? 'text-white' : 'text-black'
-              )}
+              className="h-6 w-6 text-slate-900 dark:text-slate-100"
             />
           </Select.Icon>
         </Select.Trigger>
+
         <Select.Portal>
           <Select.Content
             align="end"
+            position="popper"
             className={clsx(
               'min-w-[8rem] overflow-hidden rounded-sm py-1 shadow-md',
-              theme === 'dark'
-                ? 'bg-slate-800 text-white'
-                : 'bg-white text-black'
+              'bg-white text-slate-900',
+              'dark:bg-slate-800 dark:text-slate-100'
             )}
-            position="popper"
           >
             <Select.Viewport>
               {items.map((item) => (
                 <Select.Item
                   key={item.value}
+                  value={item.value}
                   className={clsx(
                     'flex cursor-default items-center px-3 py-2 text-base',
-                    theme === 'dark'
-                      ? 'data-[highlighted]:bg-slate-600'
-                      : 'data-[highlighted]:bg-slate-100'
+                    'data-[highlighted]:bg-slate-100',
+                    'dark:data-[highlighted]:bg-slate-600'
                   )}
-                  value={item.value}
                 >
                   <div className="mr-2 w-[1rem]">
                     {item.value === defaultValue && (
                       <CheckIcon
-                        className={clsx(
-                          'h-5 w-5',
-                          theme === 'dark' ? 'text-white' : 'text-slate-600'
-                        )}
+                        className="h-5 w-5 text-slate-600 dark:text-slate-200"
                       />
                     )}
                   </div>
@@ -86,9 +77,8 @@ export default function LocaleSwitcherSelect({
                 </Select.Item>
               ))}
             </Select.Viewport>
-            <Select.Arrow
-              className={theme === 'dark' ? 'fill-slate-800' : 'fill-white'}
-            />
+
+            <Select.Arrow className="fill-white dark:fill-slate-800" />
           </Select.Content>
         </Select.Portal>
       </Select.Root>

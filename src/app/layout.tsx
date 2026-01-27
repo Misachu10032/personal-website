@@ -22,10 +22,15 @@ export default async function LocaleLayout({ children }: Props) {
   return (
     <html lang={locale}>
       <head>
-        <title>Hello，World!</title>
+        <title>Hello,World!</title>
       </head>
       <body>
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <NextIntlClientProvider messages={messages}>
             {children}
           </NextIntlClientProvider>
