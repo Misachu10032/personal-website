@@ -7,6 +7,13 @@
       "imageSrc": "/projectsCover/aiPredictiveMaintainenceDashboard.png",
       "url": "https://github.com/JZ-Zhou-UofC/SkillsProject-Hackathon-John"
     },
+                    {
+      "id": "10",
+      "title": "Project10",
+      "description": "Project10Description",
+      "imageSrc": "/projectsCover/hushhire.png",
+      "url": "https://github.com/jshenfield/HackTheBias-Zhou-Shenfield"
+    },
     {
       "id": "1",
       "title": "Project1",

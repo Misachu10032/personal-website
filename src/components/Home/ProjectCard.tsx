@@ -20,17 +20,18 @@ export default function ProjectCard({
   const isExternal = /^https?:\/\//.test(url);
 
   const content = (
-    <article
-      className="
-        group rounded-2xl border
-        border-black/5 dark:border-white/10
-        bg-white dark:bg-neutral-900
-        p-3 laptop:p-4
-        transition-all duration-300
-        hover:-translate-y-1 hover:shadow-lg
-        dark:hover:shadow-black/40
-      "
-    >
+ <article
+  className="
+    group rounded-2xl
+    border border-neutral-200/70 dark:border-neutral-800/80
+    bg-white dark:bg-neutral-900
+    p-3 laptop:p-4
+    transition-all duration-300
+    hover:-translate-y-1
+    hover:shadow-lg dark:hover:shadow-black/40
+    hover:border-neutral-300 dark:hover:border-neutral-700
+  "
+>
       {/* Image */}
       <div className="
         relative aspect-[4/3] overflow-hidden rounded-xl
