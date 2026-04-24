@@ -24,7 +24,7 @@ export default async function LocaleLayout({ children }: Props) {
       <head>
         <title>Hello,World!</title>
       </head>
-      <body>
+      <body className={clsx(inter.className, 'bg-slate-50 dark:bg-zinc-950 text-neutral-900 dark:text-neutral-100')}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

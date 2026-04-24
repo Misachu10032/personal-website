@@ -23,26 +23,28 @@ export default function ProjectCard({
  <article
   className="
     group rounded-2xl
-    border border-neutral-200/70 dark:border-neutral-800/80
-    bg-white dark:bg-neutral-900
+    border border-neutral-200 dark:border-zinc-700
+    bg-white dark:bg-zinc-800
+    shadow-sm
     p-3 laptop:p-4
     transition-all duration-300
     hover:-translate-y-1
-    hover:shadow-lg dark:hover:shadow-black/40
-    hover:border-neutral-300 dark:hover:border-neutral-700
+    hover:shadow-xl dark:hover:shadow-black/60
+    hover:border-blue-200 dark:hover:border-blue-500/50
+    hover:ring-2 hover:ring-blue-400/20 dark:hover:ring-blue-400/25
   "
 >
       {/* Image */}
       <div className="
         relative aspect-[4/3] overflow-hidden rounded-xl
-        bg-black/5 dark:bg-white/5
+        bg-black/5 dark:bg-zinc-700/50
       ">
         <Image
           src={imageSrc}
           alt={t(title)}
           fill
           className="
-            object-contain
+            object-cover
             transition-transform duration-500
             group-hover:scale-105
           "
