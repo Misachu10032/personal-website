@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
   const t = useTranslations('Header');
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex items-center justify-end p-4 pt-6 mt-2 laptop:p-0 sticky top-0 z-50">
+    <div className="flex items-center justify-end p-4 pt-6 mt-2 laptop:p-0 sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-neutral-100 dark:border-zinc-800 transition-colors">
       <div className="hidden laptop:block">
         <nav className="flex gap-6">
           <button
