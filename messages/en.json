@@ -33,8 +33,9 @@
       "Project9": "Score & Team Dashboard",
       "Project9Description": "A dashboard for tracking match scores and managing team planning for a local badminton club.",
                   "Project10": "Hushhire",
-      "Project10Description": "Project built for the Hack the Bias hackathon that aims to reduce hiriring bias"
-
+      "Project10Description": "Project built for the Hack the Bias hackathon that aims to reduce hiriring bias",
+         "Project11": "Aerial CAD generator",
+      "Project11Description":  "Master’s capstone project that automatically generates CAD for airports"
     },
     "socials": {
       "GitHub": "GitHub",

@@ -14,6 +14,13 @@
       "imageSrc": "/projectsCover/hushhire.png",
       "url": "https://github.com/jshenfield/HackTheBias-Zhou-Shenfield"
     },
+                        {
+      "id": "11",
+      "title": "Project11",
+      "description": "Project11Description",
+      "imageSrc": "/projectsCover/cad-generation.png",
+      "url": "https://github.com/JZ-Zhou-UofC/aerial-cad-generation"
+    },
     {
       "id": "1",
       "title": "Project1",
