@@ -4,6 +4,7 @@ import Header from '@/components/Home/Header';
 import ProjectCard from '@/components/Home/ProjectCard';
 import Introduction from '@/components/Home/Introduction';
 import Socials from '@/components/Home/Socials';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
@@ -58,6 +59,15 @@ export default function HomePage() {
         <p className="mt-2 mx-3 text-xl laptop:text-2xl">
           {t('aboutContent')}
         </p>
+        <a
+          href="https://github.com/Misachu10032/personal-website"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 mx-3 inline-flex items-center gap-2 text-xl text-neutral-700 hover:text-neutral-500 dark:text-neutral-200 dark:hover:text-neutral-400 underline underline-offset-4 decoration-neutral-400 dark:decoration-neutral-500"
+        >
+          <GitHubIcon />
+          <span>{t('viewSource')}</span>
+        </a>
       </section>
 
       <footer className={SECTION_CLASS}>
