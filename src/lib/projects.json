@@ -1,5 +1,12 @@
 {
   "projects": [
+            {
+      "id": "12",
+      "title": "Project12",
+      "description": "Project12Description",
+      "imageSrc": "/projectsCover/aimu.png",
+      "url": "https://github.com/Misachu10032/aimu"
+    },
         {
       "id": "7",
       "title": "Project7",

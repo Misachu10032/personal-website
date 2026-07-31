@@ -36,7 +36,9 @@
                   "Project10": "Hushhire",
       "Project10Description": "Project built for the Hack the Bias hackathon that aims to reduce hiriring bias",
          "Project11": "Aerial CAD generator",
-      "Project11Description":  "Master’s capstone project that automatically generates CAD for airports"
+      "Project11Description":  "Master’s capstone project that automatically generates CAD for airports",
+                     "Project12": "Aimu",
+      "Project12Description": "AI subtitle generation and translation. Just in time subtitle editing"
     },
     "socials": {
       "GitHub": "GitHub",

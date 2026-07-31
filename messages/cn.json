@@ -36,7 +36,9 @@
             "Project10": "HushHire",
       "Project10Description": "Hackathon 项目 - 通过“以能力为先，而非背景”为原则，帮助消除招聘偏见",
          "Project11": "机场 CAD 生成器",
-      "Project11Description": "毕设项目 - 自动生成机场 CAD 图纸"
+      "Project11Description": "毕设项目 - 自动生成机场 CAD 图纸",
+               "Project12": "Aimu",
+      "Project12Description": "AI字幕生成,自动翻译。及时校对"
     },
     "socials": {
       "GitHub": "GitHub",
