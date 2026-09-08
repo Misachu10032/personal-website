@@ -38,7 +38,7 @@ export default function HomePage() {
       <section ref={projectRef} className={SECTION_CLASS}>
         <SectionHeading index="01" title={t('projectTitle')} />
 
-        <div className="mt-8 grid grid-cols-1 tablet:grid-cols-2 gap-4">
+        <div className="mt-8 grid grid-cols-1 tablet:grid-cols-2 gap-x-8 gap-y-10">
           {projectData.projects.map((project, index) => (
             <ProjectCard
               key={project.id}

@@ -30,7 +30,7 @@ export default function PlaygroundPage() {
         {t('subtitle')}
       </p>
 
-      <div className="mt-8 grid grid-cols-1 tablet:grid-cols-3 gap-4">
+      <div className="mt-8 grid grid-cols-1 tablet:grid-cols-3 gap-x-8 gap-y-10">
         {ITEMS.map((item, index) => (
           <Link href={item.href} key={item.key} className="block">
             <div
@@ -42,12 +42,12 @@ export default function PlaygroundPage() {
                 hover:border-accent
               "
             >
-              <div className="relative aspect-[4/3] overflow-hidden border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900">
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900">
                 <Image
                   src={item.image}
                   alt={t(`${item.key}.title`)}
                   fill
-                  className="object-cover grayscale contrast-125 transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[1.03]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <span className="absolute top-2 left-2 font-mono text-[10px] tracking-widest px-1.5 py-0.5 bg-black/80 text-white">
                   {String(index + 1).padStart(2, '0')}

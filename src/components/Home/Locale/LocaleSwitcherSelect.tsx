@@ -50,7 +50,7 @@ export default function LocaleSwitcherSelect({
             align="end"
             position="popper"
             className={clsx(
-              'min-w-[8rem] overflow-hidden border border-neutral-200 dark:border-neutral-800',
+              'z-[60] min-w-[8rem] overflow-hidden border border-neutral-200 dark:border-neutral-800',
               'bg-white text-neutral-900',
               'dark:bg-surface-dark-subtle dark:text-neutral-100'
             )}

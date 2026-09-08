@@ -37,7 +37,7 @@ const GamesPage: React.FC = () => {
                   src={game.image}
                   alt={`${game.name} icon`}
                   fill
-                  className="object-contain grayscale contrast-125 transition-all duration-500 group-hover:grayscale-0"
+                  className="object-contain"
                 />
                 <span className="absolute top-2 left-2 font-mono text-[10px] tracking-widest px-1.5 py-0.5 bg-black/80 text-white">
                   {String(index + 1).padStart(2, '0')}

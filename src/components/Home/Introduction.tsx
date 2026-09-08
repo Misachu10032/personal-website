@@ -13,7 +13,7 @@ const Introduction: React.FC = () => {
       <h1 className="mt-4 text-4xl laptop:text-6xl font-semibold tracking-tight whitespace-pre-line text-neutral-900 dark:text-neutral-100">
         {t('Line1')}
       </h1>
-      <p className="mt-4 max-w-xl text-base laptop:text-lg text-neutral-600 dark:text-neutral-400 whitespace-pre-line">
+      <p className="mt-4 text-base laptop:text-lg text-neutral-600 dark:text-neutral-400 laptop:whitespace-nowrap">
         {t('Line2')} {t('Line3')}
       </p>
     </div>

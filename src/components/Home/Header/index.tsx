@@ -21,12 +21,8 @@ const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
   const t = useTranslations('Header');
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex items-center justify-between p-4 laptop:px-0 laptop:py-4 sticky top-0 z-50 bg-white/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors">
-      <Link href="/Home" className="font-mono text-sm font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
-        JZ<span className="text-accent">.</span>
-      </Link>
-
-      <div className="hidden laptop:block">
+    <div className="relative flex items-center justify-end p-4 laptop:px-0 laptop:py-4 sticky top-0 z-50 bg-white/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors">
+      <div className="hidden laptop:block absolute left-1/2 -translate-x-1/2">
         <nav className="flex gap-6">
           <button onClick={() => scrollToSection(topRef)} className={NAV_LINK_CLASS}>
             {t('Home')}

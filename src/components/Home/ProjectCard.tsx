@@ -29,7 +29,7 @@ export default function ProjectCard({ id, index, imageSrc, url }: ProjectCardPro
     >
       {/* Image */}
       <div className="
-        relative aspect-[4/3] overflow-hidden
+        relative aspect-[16/9] overflow-hidden
         border-b border-neutral-200 dark:border-neutral-800
         bg-neutral-100 dark:bg-neutral-900
       ">
@@ -39,9 +39,8 @@ export default function ProjectCard({ id, index, imageSrc, url }: ProjectCardPro
           fill
           className="
             object-cover
-            grayscale contrast-125
-            transition-all duration-500
-            group-hover:grayscale-0 group-hover:scale-[1.03]
+            transition-transform duration-500
+            group-hover:scale-[1.03]
           "
         />
 
