@@ -4,14 +4,16 @@ import Header from '@/components/Home/Header';
 import ProjectCard from '@/components/Home/ProjectCard';
 import Introduction from '@/components/Home/Introduction';
 import Socials from '@/components/Home/Socials';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import Footer from '@/components/Home/Footer';
+import SectionHeading from '@/components/common/SectionHeading';
+import GitHubIcon from '@/components/common/GitHubIcon';
 
 import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
 
 import projectData from '@/lib/projects.json';
 
-const SECTION_CLASS = 'mt-10 laptop:mt-20 p-4 laptop:p-0';
+const SECTION_CLASS = 'mt-16 laptop:mt-28 p-4 laptop:p-0';
 
 export default function HomePage() {
   const t = useTranslations('HomePage');
@@ -28,23 +30,21 @@ export default function HomePage() {
         projectRef={projectRef}
       />
 
-      <main ref={topRef} className={SECTION_CLASS}>
+      <main ref={topRef} className="mt-16 laptop:mt-24 p-4 laptop:p-0">
         <Introduction />
-        <Socials />
+        <Socials className="mt-8" />
       </main>
 
       <section ref={projectRef} className={SECTION_CLASS}>
-        <h2 className="mx-3 text-4xl font-extrabold">
-          {t('projectTitle')}
-        </h2>
+        <SectionHeading index="01" title={t('projectTitle')} />
 
-        <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
-          {projectData.projects.map((project) => (
+        <div className="mt-8 grid grid-cols-1 tablet:grid-cols-2 gap-x-8 gap-y-10">
+          {projectData.projects.map((project, index) => (
             <ProjectCard
               key={project.id}
+              id={project.id}
+              index={index}
               imageSrc={project.imageSrc}
-              title={project.title}
-              description={project.description}
               url={project.url}
             />
           ))}
@@ -52,26 +52,24 @@ export default function HomePage() {
       </section>
 
       <section ref={aboutRef} className={SECTION_CLASS}>
-        <h2 className="mx-3 text-4xl font-extrabold">
-          {t('aboutTitle')}
-        </h2>
+        <SectionHeading index="02" title={t('aboutTitle')} />
 
-        <p className="mt-2 mx-3 text-xl laptop:text-2xl">
+        <p className="mt-6 max-w-2xl text-base laptop:text-lg text-neutral-700 dark:text-neutral-300">
           {t('aboutContent')}
         </p>
         <a
           href="https://github.com/Misachu10032/personal-website"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 mx-3 inline-flex items-center gap-2 text-xl text-neutral-700 hover:text-neutral-500 dark:text-neutral-200 dark:hover:text-neutral-400 underline underline-offset-4 decoration-neutral-400 dark:decoration-neutral-500"
+          className="mt-4 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-500 hover:text-accent dark:text-neutral-400 dark:hover:text-accent transition-colors"
         >
-          <GitHubIcon />
+          <GitHubIcon className="h-4 w-4" />
           <span>{t('viewSource')}</span>
         </a>
       </section>
 
       <footer className={SECTION_CLASS}>
-        <Socials />
+        <Footer />
       </footer>
     </>
   );

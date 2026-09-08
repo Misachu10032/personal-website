@@ -1,87 +1,47 @@
 {
   "projects": [
-            {
+    {
       "id": "12",
-      "title": "Project12",
-      "description": "Project12Description",
       "imageSrc": "/projectsCover/aimu.png",
       "url": "https://aimu-bice.vercel.app/"
     },
-        {
+    {
       "id": "7",
-      "title": "Project7",
-      "description": "Project7Description",
       "imageSrc": "/projectsCover/aiPredictiveMaintainenceDashboard.png",
       "url": "https://github.com/JZ-Zhou-UofC/SkillsProject-Hackathon-John"
     },
-                    {
+    {
       "id": "10",
-      "title": "Project10",
-      "description": "Project10Description",
       "imageSrc": "/projectsCover/hushhire.png",
       "url": "https://github.com/jshenfield/HackTheBias-Zhou-Shenfield"
     },
-                        {
+    {
       "id": "11",
-      "title": "Project11",
-      "description": "Project11Description",
       "imageSrc": "/projectsCover/cad-generation.png",
       "url": "https://github.com/JZ-Zhou-UofC/aerial-cad-generation"
     },
     {
-      "id": "1",
-      "title": "Project1",
-      "description": "Project1Description",
-      "imageSrc": "/projectsCover/CanadianWildLife.jpg",
-      "url": "PhotoDump"
+      "id": "6",
+      "imageSrc": "/projectsCover/BadmintonLeague.png",
+      "url": "https://badminton-league.vercel.app"
     },
-
     {
-      "id": "3",
-      "title": "Project3",
-      "description": "Project3Description",
-      "imageSrc": "/projectsCover/ArcadeGame.png",
-      "url": "Games"
+      "id": "2",
+      "imageSrc": "/projectsCover/HomeKaraoke.jpg",
+      "url": "https://github.com/Misachu10032/Home-Karaoke"
     },
     {
       "id": "4",
-      "title": "Project4",
-      "description": "Project4Description",
       "imageSrc": "/projectsCover/UnderConstruction.jpg",
       "url": "https://github.com/Misachu10032"
     },
     {
-      "id": "5",
-      "title": "Project5",
-      "description": "Project5Description",
-      "imageSrc": "/projectsCover/VexIQCalculator.png",
-      "url": "VexIQ-Calculator"
-    },
-    {
-      "id": "6",
-      "title": "Project6",
-      "description": "Project6Description",
-      "imageSrc": "/projectsCover/BadmintonLeague.png",
-      "url": "https://badminton-league.vercel.app"
-    },
-        {
-      "id": "2",
-      "title": "Project2",
-      "description": "Project2Description",
-      "imageSrc": "/projectsCover/HomeKaraoke.jpg",
-      "url": "https://github.com/Misachu10032/Home-Karaoke"
-    },
-            {
       "id": "8",
-      "title": "Project8",
-      "description": "Project8Description",
       "imageSrc": "/projectsCover/badminton-debrief.png",
       "url": "https://github.com/Misachu10032/badminton-debrief"
     },
-                {
+    {
       "id": "9",
-      "title": "Project9",
-      "description": "Project9Description",
       "imageSrc": "/projectsCover/match-planning.png",
       "url": "https://github.com/Misachu10032/Match-Planning"
     }

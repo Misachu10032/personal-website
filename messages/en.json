@@ -2,48 +2,64 @@
   "Header": {
     "Home": "Home",
     "Projects": "Projects",
-    "About": "About"
+    "About": "About",
+    "Playground": "Playground"
   },
   "HomePage": {
     "introduction": {
-      "Line1": "Hello, World!",
-      "Line2": "I'm John, a full-stack developer.",
-      "Line3": "I will be posting something interesting here."
+      "eyebrow": "Software Engineer",
+      "Line1": "Hi, I'm John.",
+      "Line2": "I'm a full-stack developer.",
+      "Line3": "I'll be posting something interesting here."
     },
     "projectTitle": "Projects",
     "aboutTitle": "About",
     "aboutContent": "If you find some of projects interesting or you have some interesting projects, drop a message through the socials to work together.",
     "viewSource": "This Website",
     "ProjectCard": {
-      "Project1": "Canadian Wildlife",
-      "Project1Description": "Hiking photo dumps",
-      "Project2": "Vocal Removal Player",
-      "Project2Description": "A Karaoke system with built-in vocal removal",
-      "Project3": "Retro Games",
-      "Project3Description": "Games you played as a kid",
-      "Project4": "Chat Room",
-      "Project4Description": "A simple live chat room",
-      "Project5": "VEX IQ score calculator",
-      "Project5Description": "A calculator made for westernmech robotic club",
-      "Project6": "Badminton League",
-      "Project6Description": "A ranking system for local badminton club",
-      "Project7": "Ai Predictive Maintainence Dashboard",
-      "Project7Description": "Grand Prize-winning project at the Raise x Skillsproject Hackathon",
-      "Project8": "Badminton Tactic Drawing Board",
-      "Project8Description": "I really love playing badminton",
-      "Project9": "Score & Team Dashboard",
-      "Project9Description": "A dashboard for tracking match scores and managing team planning for a local badminton club.",
-                  "Project10": "Hushhire",
-      "Project10Description": "Project built for the Hack the Bias hackathon that aims to reduce hiriring bias",
-         "Project11": "Aerial CAD generator",
-      "Project11Description":  "Master’s capstone project that automatically generates CAD for airports",
-                     "Project12": "Aimu",
-      "Project12Description": "AI subtitle generation and translation. Just in time subtitle editing"
+      "project-12": "Aimu",
+      "project-12-description": "AI-powered subtitle generation and translation, with just-in-time editing.",
+      "project-7": "AI Predictive Maintenance Dashboard",
+      "project-7-description": "Grand Prize-winning project at the Raise x SkillsProject Hackathon.",
+      "project-10": "Hushhire",
+      "project-10-description": "Project built for the Hack the Bias hackathon, aiming to reduce hiring bias.",
+      "project-11": "Aerial CAD Generator",
+      "project-11-description": "Master's capstone project that automatically generates CAD drawings for airports.",
+      "project-6": "Badminton League",
+      "project-6-description": "A ranking system for a local badminton club.",
+      "project-2": "Vocal Removal Player",
+      "project-2-description": "A karaoke system with built-in vocal removal.",
+      "project-4": "Chat Room",
+      "project-4-description": "A simple live chat room.",
+      "project-8": "Badminton Tactic Drawing Board",
+      "project-8-description": "A simple whiteboard for sketching and sharing badminton tactics.",
+      "project-9": "Score & Team Dashboard",
+      "project-9-description": "A dashboard for tracking match scores and managing team planning for a local badminton club."
     },
     "socials": {
       "GitHub": "GitHub",
       "Email": "Email",
       "Wechat": "Wechat"
+    },
+    "footer": {
+      "title": "Contact"
+    }
+  },
+  "Playground": {
+    "back": "← Back to Home",
+    "title": "Playground",
+    "subtitle": "Games and side experiments, kept separate from the main projects.",
+    "games": {
+      "title": "Retro Games",
+      "description": "Games you played as a kid."
+    },
+    "photoDump": {
+      "title": "Photo Dump",
+      "description": "A collection of photos from hikes and travels."
+    },
+    "vexCalculator": {
+      "title": "VEX IQ Score Calculator",
+      "description": "A score calculator built for the Westernmech robotics club."
     }
   },
   "LocaleSwitcher": {

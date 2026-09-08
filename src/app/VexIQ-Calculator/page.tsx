@@ -1,24 +1,30 @@
 'use client';
 import { useState, useEffect } from 'react';
 
+type ScoreResult = number | string;
+
 export default function ScoreDisplay() {
-  const [goals, setGoals] = useState(0); // Default value
-  const [clearedSwitches, setClearedSwitches] = useState(0); // Default value
-  const [passes, setPasses] = useState(0); // Default value
-  const [score, setScore] = useState(0); // Calculated score
-  const [error, setError] = useState(''); // Error messages
-  const [isTeamRule, setIsTeamRule] = useState(true); // Track active rule
+  const [goals, setGoals] = useState(0);
+  const [clearedSwitches, setClearedSwitches] = useState(0);
+  const [passes, setPasses] = useState(0);
+  const [score, setScore] = useState(0);
+  const [error, setError] = useState('');
+  const [isTeamRule, setIsTeamRule] = useState(true);
 
   const resetFields = () => {
     setGoals(0);
     setClearedSwitches(0);
     setPasses(0);
-    setError(''); // Clear any errors
-    setScore(0); // Reset score to 0
+    setError('');
+    setScore(0);
   };
 
   // Calculate score based on the original rules
-  const calculateScore = (goals, clearedSwitches, passes) => {
+  const calculateScore = (
+    goals: number,
+    clearedSwitches: number,
+    passes: number
+  ): ScoreResult => {
     if (clearedSwitches > 4) return 'Error: Max 4 cleared switches allowed.';
     if (clearedSwitches <= 0 && goals > 0)
       return 'At least 1 switch is cleared';
@@ -53,7 +59,10 @@ export default function ScoreDisplay() {
   };
 
   // New rule: Calculate score without passes
-  const calculateSkillsScore = (goals, clearedSwitches) => {
+  const calculateSkillsScore = (
+    goals: number,
+    clearedSwitches: number
+  ): ScoreResult => {
     if (clearedSwitches > 4) return 'Error: Max 4 cleared switches allowed.';
     if (clearedSwitches <= 0 && goals > 0)
       return 'At least 1 switch is cleared';
@@ -80,17 +89,13 @@ export default function ScoreDisplay() {
         goalPoints = 0;
     }
 
-    // Calculate switch points
-
-
     return goalPoints + clearedSwitches;
   };
 
   useEffect(() => {
-    let result;
+    let result: ScoreResult;
     if (isTeamRule) {
       result = calculateScore(goals, clearedSwitches, passes);
-    
     } else {
       result = calculateSkillsScore(goals, clearedSwitches);
     }
@@ -102,16 +107,17 @@ export default function ScoreDisplay() {
       setError('');
       setScore(result);
     }
-  }, [goals, clearedSwitches, passes, isTeamRule]); // Dependencies: recalculate when any of these changes
+  }, [goals, clearedSwitches, passes, isTeamRule]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white p-4">
       <div className="flex justify-between w-full max-w-md">
         <button
           onClick={() => {
-            setIsTeamRule(!isTeamRule), resetFields();
+            setIsTeamRule(!isTeamRule);
+            resetFields();
           }}
-          className="px-4 py-2 mb-4 bg-gray-700 text-white rounded-md hover:bg-gray-600"
+          className="px-4 py-2 mb-4 bg-neutral-700 text-white rounded-md hover:bg-neutral-600"
         >
           Toggle Rule Set
         </button>
@@ -158,7 +164,7 @@ export default function ScoreDisplay() {
       <div>
         <button
           onClick={resetFields}
-          className="mt-4 mb-5 px-4 py-2 border-2 rounded-full text-white hover:bg-gray-500"
+          className="mt-4 mb-5 px-4 py-2 border-2 rounded-full text-white hover:bg-neutral-500"
         >
           Clear Fields
         </button>

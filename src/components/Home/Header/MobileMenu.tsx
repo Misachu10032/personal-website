@@ -1,8 +1,8 @@
 'use client';
 import React, { RefObject } from 'react';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { scrollToSection } from '@/app/utils/scrollToSection';
-import { useTheme } from 'next-themes'; // Import useTheme
 
 interface MobileMenuProps {
   topRef: RefObject<HTMLElement>;
@@ -11,28 +11,25 @@ interface MobileMenuProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const MOBILE_LINK_CLASS =
+  'font-mono text-xs uppercase tracking-widest px-4 py-3 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800';
+
 const MobileMenu: React.FC<MobileMenuProps> = ({
   topRef,
   projectRef,
   aboutRef,
   setIsOpen,
 }) => {
-  const { theme } = useTheme(); // Get the current theme
   const t = useTranslations('Header');
 
-  // Define the dynamic colors based on the theme
-  const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
-  const textColor = theme === 'dark' ? 'text-white' : 'text-gray-800';
-  const hoverColor = theme === 'dark' ? 'hover:bg-gray-700' : 'hover:bg-gray-200';
-
   return (
-    <div className={`absolute top-16 right-0 z-40 w-1/3 p-4 shadow-lg rounded-md flex flex-col gap-4 ${bgColor}`}>
+    <div className="absolute top-16 right-0 z-40 w-1/2 tablet:w-1/3 py-2 flex flex-col bg-white dark:bg-surface-dark-subtle border border-neutral-200 dark:border-neutral-800">
       <button
         onClick={() => {
           scrollToSection(topRef);
           setIsOpen(false);
         }}
-        className={`px-4 py-2 text-lg font-medium rounded-md ${textColor} ${hoverColor}`}
+        className={MOBILE_LINK_CLASS}
       >
         {t('Home')}
       </button>
@@ -41,7 +38,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           scrollToSection(projectRef);
           setIsOpen(false);
         }}
-        className={`px-4 py-2 text-lg font-medium rounded-md ${textColor} ${hoverColor}`}
+        className={MOBILE_LINK_CLASS}
       >
         {t('Projects')}
       </button>
@@ -50,10 +47,13 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           scrollToSection(aboutRef);
           setIsOpen(false);
         }}
-        className={`px-4 py-2 text-lg font-medium rounded-md ${textColor} ${hoverColor}`}
+        className={MOBILE_LINK_CLASS}
       >
         {t('About')}
       </button>
+      <Link href="/Playground" className={MOBILE_LINK_CLASS} onClick={() => setIsOpen(false)}>
+        {t('Playground')}
+      </Link>
     </div>
   );
 };

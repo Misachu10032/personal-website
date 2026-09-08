@@ -2,11 +2,13 @@
   "Header": {
     "Home": "首页",
     "Projects": "项目",
-    "About": "关于"
+    "About": "关于",
+    "Playground": "更多"
   },
   "HomePage": {
     "introduction": {
-      "Line1": "Hello, World!",
+      "eyebrow": "软件工程师",
+      "Line1": "你好，我是 John。",
       "Line2": "我是个全栈程序猿。",
       "Line3": "会在这整点奇奇怪怪的东西"
     },
@@ -15,35 +17,49 @@
     "aboutContent": "如果你觉得我的一些项目很有趣，或者你有一些有趣的项目想一起合作，欢迎勾搭。",
     "viewSource": "这个网站",
     "ProjectCard": {
-      "Project1": "加拿大风景",
-      "Project1Description": "徒步旅行照片集",
-      "Project2": "卡拉OK播放器",
-      "Project2Description": "一个内置人声去除功能的卡拉OK系统",
-      "Project3": "复古小游戏",
-      "Project3Description": "魔改4399小游戏",
-      "Project4": "聊天室",
-      "Project4Description": "一个简单的实时聊天室",
-      "Project5": "VEX IQ 记分器",
-      "Project5Description": "给撘机器人的小孩子们做的记分器",
-      "Project6": "羽球排位",
-      "Project6Description": "一个给羽球俱乐部写的排位系统",
-      "Project7": "智能维修预测表",
-      "Project7Description": "Raise x Skillsproject Hackathon 一等奖作品",
-            "Project8": "羽毛球战术小画板",
-      "Project8Description": "我是真的爱打羽球",
-      "Project9": "比赛计分面板",
-      "Project9Description": "帮羽球群群主干的活",
-            "Project10": "HushHire",
-      "Project10Description": "Hackathon 项目 - 通过“以能力为先，而非背景”为原则，帮助消除招聘偏见",
-         "Project11": "机场 CAD 生成器",
-      "Project11Description": "毕设项目 - 自动生成机场 CAD 图纸",
-               "Project12": "Aimu",
-      "Project12Description": "AI字幕生成,自动翻译。及时校对"
+      "project-12": "Aimu",
+      "project-12-description": "AI字幕生成与自动翻译，支持即时校对。",
+      "project-7": "智能维修预测表",
+      "project-7-description": "Raise x SkillsProject Hackathon 一等奖作品。",
+      "project-10": "HushHire",
+      "project-10-description": "Hackathon 项目 —— 以能力为先而非背景，帮助消除招聘偏见。",
+      "project-11": "机场 CAD 生成器",
+      "project-11-description": "硕士毕设项目 —— 自动生成机场 CAD 图纸。",
+      "project-6": "羽球排位",
+      "project-6-description": "一个给羽球俱乐部写的排位系统。",
+      "project-2": "卡拉OK播放器",
+      "project-2-description": "一个内置人声去除功能的卡拉OK系统。",
+      "project-4": "聊天室",
+      "project-4-description": "一个简单的实时聊天室。",
+      "project-8": "羽毛球战术小画板",
+      "project-8-description": "一个用来画羽球战术的简易画板。",
+      "project-9": "比赛计分面板",
+      "project-9-description": "帮羽球俱乐部记录比赛比分并管理团队安排的面板。"
     },
     "socials": {
       "GitHub": "GitHub",
       "Email": "信箱",
       "Wechat": "微信"
+    },
+    "footer": {
+      "title": "联系我"
+    }
+  },
+  "Playground": {
+    "back": "← 返回首页",
+    "title": "更多",
+    "subtitle": "一些小游戏和实验性项目，独立于主要作品之外。",
+    "games": {
+      "title": "复古小游戏",
+      "description": "魔改4399小游戏"
+    },
+    "photoDump": {
+      "title": "照片墙",
+      "description": "旅行和徒步途中拍的照片合集"
+    },
+    "vexCalculator": {
+      "title": "VEX IQ 记分器",
+      "description": "给 Westernmech 机器人俱乐部做的记分器"
     }
   },
   "LocaleSwitcher": {
