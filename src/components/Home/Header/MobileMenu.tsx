@@ -12,7 +12,7 @@ interface MobileMenuProps {
 }
 
 const MOBILE_LINK_CLASS =
-  'px-4 py-2 text-base font-medium rounded-md text-neutral-800 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-700';
+  'font-mono text-xs uppercase tracking-widest px-4 py-3 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800';
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
   topRef,
@@ -23,7 +23,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   const t = useTranslations('Header');
 
   return (
-    <div className="absolute top-16 right-0 z-40 w-1/2 tablet:w-1/3 p-4 shadow-lg rounded-md flex flex-col gap-2 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
+    <div className="absolute top-16 right-0 z-40 w-1/2 tablet:w-1/3 py-2 flex flex-col bg-white dark:bg-surface-dark-subtle border border-neutral-200 dark:border-neutral-800">
       <button
         onClick={() => {
           scrollToSection(topRef);

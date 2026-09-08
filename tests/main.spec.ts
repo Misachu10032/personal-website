@@ -19,10 +19,10 @@ test('nav scrolls to the Projects and About sections', async ({ page }) => {
 test('dark mode toggle switches the theme', async ({ page }) => {
   await page.goto('/Home');
   const html = page.locator('html');
-  await expect(html).not.toHaveClass(/dark/);
+  await expect(html).toHaveClass(/dark/);
 
   await page.getByRole('button', { name: 'Toggle theme' }).click();
-  await expect(html).toHaveClass(/dark/);
+  await expect(html).not.toHaveClass(/dark/);
 });
 
 test('Playground link navigates to the playground hub', async ({ page }) => {

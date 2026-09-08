@@ -19,19 +19,19 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
   };
 
   const linkClass =
-    'flex items-center space-x-2 transition-colors ' +
-    'text-neutral-700 hover:text-neutral-500 ' +
-    'dark:text-neutral-200 dark:hover:text-neutral-400';
+    'flex items-center gap-2 font-mono text-xs uppercase tracking-widest transition-colors ' +
+    'text-neutral-500 hover:text-accent ' +
+    'dark:text-neutral-400 dark:hover:text-accent';
 
   return (
-    <div className={`${className ?? ''} mt-8 flex space-x-6`}>
+    <div className={`${className ?? ''} flex flex-wrap gap-6`}>
       <a
         href={socialsData.GitHub}
         target="_blank"
         rel="noopener noreferrer"
         className={linkClass}
       >
-        <GitHubIcon className="h-5 w-5 text-current" />
+        <GitHubIcon className="h-4 w-4 text-current" />
         <span>{t('GitHub')}</span>
       </a>
 
@@ -39,7 +39,7 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
         onClick={() => handleIconClick(socialsData.Email, 'Email')}
         className={linkClass}
       >
-        <EnvelopeIcon className="h-5 w-5 text-current" />
+        <EnvelopeIcon className="h-4 w-4 text-current" />
         <span>{t('Email')}</span>
       </button>
 
@@ -47,7 +47,7 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
         onClick={() => handleIconClick(socialsData.WeChat, 'Wechat')}
         className={linkClass}
       >
-        <img src="/icons/wechat.svg" alt="WeChat" className="h-6 w-6" />
+        <img src="/icons/wechat.svg" alt="WeChat" className="h-4 w-4" />
         <span>{t('Wechat')}</span>
       </button>
 

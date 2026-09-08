@@ -34,13 +34,13 @@ export default function LocaleSwitcherSelect({
           aria-label={label}
           className={clsx(
             'rounded-sm p-2 transition-colors',
-            'hover:bg-neutral-200 dark:hover:bg-neutral-700',
+            'hover:bg-neutral-100 dark:hover:bg-neutral-800',
             isPending && 'pointer-events-none opacity-60'
           )}
         >
           <Select.Icon>
             <LanguageIcon
-              className="h-6 w-6 text-neutral-900 dark:text-neutral-100"
+              className="h-5 w-5 text-neutral-600 dark:text-neutral-300"
             />
           </Select.Icon>
         </Select.Trigger>
@@ -50,9 +50,9 @@ export default function LocaleSwitcherSelect({
             align="end"
             position="popper"
             className={clsx(
-              'min-w-[8rem] overflow-hidden rounded-sm py-1 shadow-md',
+              'min-w-[8rem] overflow-hidden border border-neutral-200 dark:border-neutral-800',
               'bg-white text-neutral-900',
-              'dark:bg-neutral-800 dark:text-neutral-100'
+              'dark:bg-surface-dark-subtle dark:text-neutral-100'
             )}
           >
             <Select.Viewport>
@@ -61,9 +61,9 @@ export default function LocaleSwitcherSelect({
                   key={item.value}
                   value={item.value}
                   className={clsx(
-                    'flex cursor-default items-center px-3 py-2 text-base',
+                    'flex cursor-default items-center px-3 py-2 font-mono text-xs uppercase tracking-widest',
                     'data-[highlighted]:bg-neutral-100',
-                    'dark:data-[highlighted]:bg-neutral-700'
+                    'dark:data-[highlighted]:bg-neutral-800'
                   )}
                 >
                   <div className="mr-2 w-[1rem]">
@@ -78,7 +78,7 @@ export default function LocaleSwitcherSelect({
               ))}
             </Select.Viewport>
 
-            <Select.Arrow className="fill-white dark:fill-neutral-800" />
+            <Select.Arrow className="fill-white dark:fill-surface-dark-subtle" />
           </Select.Content>
         </Select.Portal>
       </Select.Root>

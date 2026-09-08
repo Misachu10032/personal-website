@@ -1,18 +1,17 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import Socials from './Socials';
+import SectionHeading from '../common/SectionHeading';
 
 const Footer: React.FC = () => {
   const t = useTranslations('HomePage.footer');
   const year = new Date().getFullYear();
 
   return (
-    <div className="border-t border-neutral-200 dark:border-neutral-800 pt-8">
-      <h2 className="text-2xl laptop:text-3xl font-semibold text-neutral-900 dark:text-neutral-100">
-        {t('title')}
-      </h2>
-      <Socials className="mt-4" />
-      <p className="mt-8 text-sm text-neutral-500 dark:text-neutral-400">
+    <div>
+      <SectionHeading index="03" title={t('title')} />
+      <Socials className="mt-6" />
+      <p className="mt-10 font-mono text-xs text-neutral-500 dark:text-neutral-600">
         &copy; {year} John Zhou
       </p>
     </div>

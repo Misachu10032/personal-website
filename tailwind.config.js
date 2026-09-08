@@ -13,16 +13,22 @@ module.exports = {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#2563eb',
-          hover: '#1d4ed8',
-          subtle: '#eff6ff',
+          DEFAULT: '#22d3ee',
+          hover: '#06b6d4',
+          subtle: 'rgba(34, 211, 238, 0.08)',
         },
         surface: {
           DEFAULT: '#ffffff',
           subtle: '#fafafa',
-          dark: '#09090b',
-          'dark-subtle': '#18181b',
+          dark: '#0a0a0a',
+          'dark-subtle': '#111111',
         },
+      },
+      fontFamily: {
+        mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      backgroundImage: {
+        grid: 'linear-gradient(to right, var(--tw-grid-line) 1px, transparent 1px), linear-gradient(to bottom, var(--tw-grid-line) 1px, transparent 1px)',
       },
     },
   },

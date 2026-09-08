@@ -23,10 +23,10 @@ const NotificationBubble: React.FC<NotificationBubbleProps> = ({
     <div
       className={`
         fixed top-6 left-1/2 -translate-x-1/2 z-50
-        px-4 py-2 rounded-md shadow-lg
-        bg-neutral-900 text-neutral-50
-        dark:bg-neutral-100 dark:text-neutral-900
-        text-sm font-medium
+        px-4 py-2 border
+        bg-neutral-900 text-neutral-50 border-accent
+        dark:bg-neutral-100 dark:text-neutral-900 dark:border-accent
+        font-mono text-xs uppercase tracking-widest
         transition-all duration-300
         ${open ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}
       `}

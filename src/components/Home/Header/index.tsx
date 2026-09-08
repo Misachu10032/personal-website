@@ -15,15 +15,19 @@ interface HeaderProps {
 }
 
 const NAV_LINK_CLASS =
-  'px-4 py-2 text-sm font-medium rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors';
+  'font-mono text-xs uppercase tracking-widest px-1 py-2 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 border-b-2 border-transparent hover:border-accent transition-colors';
 
 const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
   const t = useTranslations('Header');
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex items-center justify-end p-4 pt-6 mt-2 laptop:p-0 sticky top-0 z-50 bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-neutral-100 dark:border-neutral-800 transition-colors">
+    <div className="flex items-center justify-between p-4 laptop:px-0 laptop:py-4 sticky top-0 z-50 bg-white/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors">
+      <Link href="/Home" className="font-mono text-sm font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
+        JZ<span className="text-accent">.</span>
+      </Link>
+
       <div className="hidden laptop:block">
-        <nav className="flex gap-2">
+        <nav className="flex gap-6">
           <button onClick={() => scrollToSection(topRef)} className={NAV_LINK_CLASS}>
             {t('Home')}
           </button>
@@ -39,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
         </nav>
       </div>
 
-      <div className="mb-2 mt-1 flex items-center ml-8">
+      <div className="flex items-center">
         <LocaleSwitcher />
         <DarkModeToggle />
         <MobileMenuToggleButton isOpen={isOpen} setIsOpen={setIsOpen} />

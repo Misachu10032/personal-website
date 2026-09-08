@@ -12,17 +12,16 @@ const DarkModeToggle = () => {
       type="button"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className="
-        m-2 p-2 rounded-md
-        transition-all duration-300
-        hover:scale-105 active:scale-100
-        hover:bg-neutral-200 dark:hover:bg-neutral-700
+        m-2 p-2 rounded-sm
+        transition-colors duration-200
+        hover:bg-neutral-100 dark:hover:bg-neutral-800
       "
       aria-label="Toggle theme"
     >
       {isDark ? (
-        <SunIcon className="h-6 w-6 text-neutral-200" />
+        <SunIcon className="h-5 w-5 text-neutral-400 hover:text-accent" />
       ) : (
-        <MoonIcon className="h-6 w-6 text-neutral-800" />
+        <MoonIcon className="h-5 w-5 text-neutral-600 hover:text-accent" />
       )}
     </button>
   );

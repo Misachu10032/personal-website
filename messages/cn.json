@@ -7,6 +7,7 @@
   },
   "HomePage": {
     "introduction": {
+      "eyebrow": "软件工程师",
       "Line1": "你好，我是 John。",
       "Line2": "我是个全栈程序猿。",
       "Line3": "会在这整点奇奇怪怪的东西"

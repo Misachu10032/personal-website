@@ -4,36 +4,34 @@ import { useTranslations } from 'next-intl';
 
 interface ProjectCardProps {
   id: string;
+  index: number;
   imageSrc: string;
   url: string;
 }
 
-export default function ProjectCard({ id, imageSrc, url }: ProjectCardProps) {
+export default function ProjectCard({ id, index, imageSrc, url }: ProjectCardProps) {
   const t = useTranslations('HomePage.ProjectCard');
 
   const isExternal = /^https?:\/\//.test(url);
   const title = t(`project-${id}`);
   const description = t(`project-${id}-description`);
+  const indexLabel = String(index + 1).padStart(2, '0');
 
   const content = (
     <div
       className="
-        group rounded-2xl
-        border border-neutral-200 dark:border-neutral-700
-        bg-white dark:bg-neutral-800
-        shadow-sm
-        p-3 laptop:p-4
-        transition-all duration-300
-        hover:-translate-y-1
-        hover:shadow-xl dark:hover:shadow-black/60
-        hover:border-accent/40 dark:hover:border-accent/50
-        hover:ring-2 hover:ring-accent/20 dark:hover:ring-accent/25
+        group
+        border border-neutral-200 dark:border-neutral-800
+        bg-white dark:bg-surface-dark-subtle
+        transition-colors duration-200
+        hover:border-accent
       "
     >
       {/* Image */}
       <div className="
-        relative aspect-[4/3] overflow-hidden rounded-xl
-        bg-black/5 dark:bg-neutral-700/50
+        relative aspect-[4/3] overflow-hidden
+        border-b border-neutral-200 dark:border-neutral-800
+        bg-neutral-100 dark:bg-neutral-900
       ">
         <Image
           src={imageSrc}
@@ -41,30 +39,33 @@ export default function ProjectCard({ id, imageSrc, url }: ProjectCardProps) {
           fill
           className="
             object-cover
-            transition-transform duration-500
-            group-hover:scale-105
+            grayscale contrast-125
+            transition-all duration-500
+            group-hover:grayscale-0 group-hover:scale-[1.03]
           "
         />
 
-        <div className="
-          pointer-events-none absolute inset-0
-          bg-gradient-to-t
-          from-black/10 dark:from-black/40
-          to-transparent
-        " />
+        <span className="
+          absolute top-2 left-2
+          font-mono text-[10px] tracking-widest
+          px-1.5 py-0.5
+          bg-black/80 text-white
+        ">
+          {indexLabel}
+        </span>
       </div>
 
       {/* Text */}
-      <div className="mt-4 space-y-1">
+      <div className="p-4 space-y-1">
         <h3 className="
-          text-lg laptop:text-xl font-semibold leading-tight
+          text-base laptop:text-lg font-semibold leading-tight
           text-neutral-900 dark:text-neutral-100
         ">
           {title}
         </h3>
 
         <p className="
-          text-sm laptop:text-base
+          text-sm
           text-neutral-600 dark:text-neutral-400
         ">
           {description}

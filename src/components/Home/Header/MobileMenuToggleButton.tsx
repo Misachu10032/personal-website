@@ -12,10 +12,14 @@ const MobileMenuToggleButton: React.FC<MobileMenuToggleButtonProps> = ({ isOpen,
     <div className="flex laptop:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-700"
+        className="p-2 rounded-sm hover:bg-neutral-100 dark:hover:bg-neutral-800"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
-        {isOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
+        {isOpen ? (
+          <XMarkIcon className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />
+        ) : (
+          <Bars3Icon className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />
+        )}
       </button>
     </div>
   );

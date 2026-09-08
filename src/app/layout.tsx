@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { ReactNode } from 'react';
@@ -8,6 +8,10 @@ import './globals.css';
 import { ThemeProvider } from 'next-themes';
 
 const inter = Inter({ subsets: ['latin'] });
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+});
 
 export const metadata: Metadata = {
   title: 'John Zhou',
@@ -27,10 +31,10 @@ export default async function LocaleLayout({ children }: Props) {
 
   return (
     <html lang={locale}>
-      <body className={clsx(inter.className, 'bg-surface dark:bg-surface-dark text-neutral-900 dark:text-neutral-100')}>
+      <body className={clsx(inter.className, jetbrainsMono.variable, 'bg-surface dark:bg-surface-dark text-neutral-900 dark:text-neutral-100')}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
