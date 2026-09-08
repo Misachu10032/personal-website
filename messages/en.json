@@ -48,7 +48,7 @@
   "Playground": {
     "back": "← Back to Home",
     "title": "Playground",
-    "subtitle": "Games and side experiments, kept separate from the main projects.",
+    "subtitle": "Games and side experiments.",
     "games": {
       "title": "Retro Games",
       "description": "Games you played as a kid."
