@@ -1,44 +1,21 @@
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import { ReactTyped } from 'react-typed';
 
 const Introduction: React.FC = () => {
   const t = useTranslations('HomePage.introduction');
 
   return (
-    <>
-      <div className="text-4xl tablet:text-6xl laptop:text-8xl font-semibold tracking-tight whitespace-pre-line">
-        <ReactTyped
-          strings={[t('Line1')]}
-          typeSpeed={50}
-          backSpeed={20}
-          backDelay={1000}
-          startDelay={100}
-          loop={false}
-          showCursor={false}
-        />
-      </div>
-      <div className="text-2xl tablet:text-5xl laptop:text-6xl mt-2 font-semibold tracking-tight whitespace-pre-line">
-        <ReactTyped
-          strings={[t('Line2')]}
-          typeSpeed={50}
-          backSpeed={20}
-          startDelay={2000}
-          loop={false}
-          showCursor={false}
-        />
-      </div>
-      <div className="text-2xl tablet:text-5xl laptop:text-6xl mt-2 font-semibold tracking-tight whitespace-pre-line">
-        <ReactTyped
-          strings={[t('Line3')]}
-          typeSpeed={50}
-          backSpeed={20}
-          startDelay={5000}
-          loop={false}
-          showCursor={false}
-        />
-      </div>
-    </>
+    <div>
+      <h1 className="text-4xl laptop:text-6xl font-semibold tracking-tight whitespace-pre-line text-neutral-900 dark:text-neutral-100">
+        {t('Line1')}
+      </h1>
+      <p className="mt-2 text-xl laptop:text-2xl text-neutral-600 dark:text-neutral-400 whitespace-pre-line">
+        {t('Line2')}
+      </p>
+      <p className="mt-1 text-xl laptop:text-2xl text-neutral-600 dark:text-neutral-400 whitespace-pre-line">
+        {t('Line3')}
+      </p>
+    </div>
   );
 };
 

@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 
 interface MobileMenuToggleButtonProps {
   isOpen: boolean;
@@ -13,9 +12,10 @@ const MobileMenuToggleButton: React.FC<MobileMenuToggleButtonProps> = ({ isOpen,
     <div className="flex laptop:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+        className="p-2 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-700"
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
       >
-        {isOpen ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+        {isOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
       </button>
     </div>
   );

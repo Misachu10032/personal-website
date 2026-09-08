@@ -4,7 +4,8 @@ import Header from '@/components/Home/Header';
 import ProjectCard from '@/components/Home/ProjectCard';
 import Introduction from '@/components/Home/Introduction';
 import Socials from '@/components/Home/Socials';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import Footer from '@/components/Home/Footer';
+import GitHubIcon from '@/components/common/GitHubIcon';
 
 import { useTranslations } from 'next-intl';
 import { useRef } from 'react';
@@ -34,17 +35,16 @@ export default function HomePage() {
       </main>
 
       <section ref={projectRef} className={SECTION_CLASS}>
-        <h2 className="mx-3 text-4xl font-extrabold">
+        <h2 className="mx-3 text-2xl laptop:text-3xl font-semibold text-neutral-900 dark:text-neutral-100">
           {t('projectTitle')}
         </h2>
 
-        <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-4">
+        <div className="mt-5 laptop:mt-10 grid grid-cols-1 tablet:grid-cols-2 gap-6">
           {projectData.projects.map((project) => (
             <ProjectCard
               key={project.id}
+              id={project.id}
               imageSrc={project.imageSrc}
-              title={project.title}
-              description={project.description}
               url={project.url}
             />
           ))}
@@ -52,26 +52,26 @@ export default function HomePage() {
       </section>
 
       <section ref={aboutRef} className={SECTION_CLASS}>
-        <h2 className="mx-3 text-4xl font-extrabold">
+        <h2 className="mx-3 text-2xl laptop:text-3xl font-semibold text-neutral-900 dark:text-neutral-100">
           {t('aboutTitle')}
         </h2>
 
-        <p className="mt-2 mx-3 text-xl laptop:text-2xl">
+        <p className="mt-2 mx-3 text-base laptop:text-lg text-neutral-700 dark:text-neutral-300">
           {t('aboutContent')}
         </p>
         <a
           href="https://github.com/Misachu10032/personal-website"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 mx-3 inline-flex items-center gap-2 text-xl text-neutral-700 hover:text-neutral-500 dark:text-neutral-200 dark:hover:text-neutral-400 underline underline-offset-4 decoration-neutral-400 dark:decoration-neutral-500"
+          className="mt-4 mx-3 inline-flex items-center gap-2 text-base text-neutral-700 hover:text-accent dark:text-neutral-300 dark:hover:text-accent underline underline-offset-4 decoration-neutral-400 dark:decoration-neutral-500"
         >
-          <GitHubIcon />
+          <GitHubIcon className="h-5 w-5" />
           <span>{t('viewSource')}</span>
         </a>
       </section>
 
       <footer className={SECTION_CLASS}>
-        <Socials />
+        <Footer />
       </footer>
     </>
   );

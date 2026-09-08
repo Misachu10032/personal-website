@@ -10,7 +10,21 @@ module.exports = {
       desktop: '1280px',
       laptopl: '1440px',
     },
-    extend: {},
+    extend: {
+      colors: {
+        accent: {
+          DEFAULT: '#2563eb',
+          hover: '#1d4ed8',
+          subtle: '#eff6ff',
+        },
+        surface: {
+          DEFAULT: '#ffffff',
+          subtle: '#fafafa',
+          dark: '#09090b',
+          'dark-subtle': '#18181b',
+        },
+      },
+    },
   },
   plugins: [],
 };

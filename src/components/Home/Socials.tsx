@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import EmailIcon from '@mui/icons-material/Email';
+import { EnvelopeIcon } from '@heroicons/react/24/solid';
+import GitHubIcon from '../common/GitHubIcon';
 import NotificationBubble from '../common/NotificationBubble';
 import { useTranslations } from 'next-intl';
 import socialsData from '@/lib/socials.json';
@@ -31,7 +31,7 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
         rel="noopener noreferrer"
         className={linkClass}
       >
-        <GitHubIcon className="text-current" />
+        <GitHubIcon className="h-5 w-5 text-current" />
         <span>{t('GitHub')}</span>
       </a>
 
@@ -39,7 +39,7 @@ const Socials: React.FC<{ className?: string }> = ({ className }) => {
         onClick={() => handleIconClick(socialsData.Email, 'Email')}
         className={linkClass}
       >
-        <EmailIcon className="text-current" />
+        <EnvelopeIcon className="h-5 w-5 text-current" />
         <span>{t('Email')}</span>
       </button>
 

@@ -1,11 +1,10 @@
 'use client';
 import React, { RefObject, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import LocaleSwitcher from '@/components/Home/Locale/LocaleSwitcher';
 import DarkModeToggle from '@/components/Home/Header/DarkModeToggleButton';
 import { scrollToSection } from '@/app/utils/scrollToSection';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
 import MobileMenuToggleButton from './MobileMenuToggleButton';
 import MobileMenu from './MobileMenu';
 
@@ -15,31 +14,28 @@ interface HeaderProps {
   topRef: RefObject<HTMLElement>;
 }
 
+const NAV_LINK_CLASS =
+  'px-4 py-2 text-sm font-medium rounded-md text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors';
+
 const Header: React.FC<HeaderProps> = ({ projectRef, aboutRef, topRef }) => {
   const t = useTranslations('Header');
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex items-center justify-end p-4 pt-6 mt-2 laptop:p-0 sticky top-0 z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-neutral-100 dark:border-zinc-800 transition-colors">
+    <div className="flex items-center justify-end p-4 pt-6 mt-2 laptop:p-0 sticky top-0 z-50 bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md border-b border-neutral-100 dark:border-neutral-800 transition-colors">
       <div className="hidden laptop:block">
-        <nav className="flex gap-6">
-          <button
-            onClick={() => scrollToSection(topRef)}
-            className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
+        <nav className="flex gap-2">
+          <button onClick={() => scrollToSection(topRef)} className={NAV_LINK_CLASS}>
             {t('Home')}
           </button>
-          <button
-            onClick={() => scrollToSection(projectRef)}
-            className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
+          <button onClick={() => scrollToSection(projectRef)} className={NAV_LINK_CLASS}>
             {t('Projects')}
           </button>
-          <button
-            onClick={() => scrollToSection(aboutRef)}
-            className="px-6 py-3 text-3xl font-semibold rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
+          <button onClick={() => scrollToSection(aboutRef)} className={NAV_LINK_CLASS}>
             {t('About')}
           </button>
+          <Link href="/Playground" className={NAV_LINK_CLASS}>
+            {t('Playground')}
+          </Link>
         </nav>
       </div>
 

@@ -3,45 +3,41 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 interface ProjectCardProps {
+  id: string;
   imageSrc: string;
-  title: string;
-  description: string;
   url: string;
 }
 
-export default function ProjectCard({
-  imageSrc,
-  title,
-  description,
-  url,
-}: ProjectCardProps) {
+export default function ProjectCard({ id, imageSrc, url }: ProjectCardProps) {
   const t = useTranslations('HomePage.ProjectCard');
 
   const isExternal = /^https?:\/\//.test(url);
+  const title = t(`project-${id}`);
+  const description = t(`project-${id}-description`);
 
   const content = (
- <article
-  className="
-    group rounded-2xl
-    border border-neutral-200 dark:border-zinc-700
-    bg-white dark:bg-zinc-800
-    shadow-sm
-    p-3 laptop:p-4
-    transition-all duration-300
-    hover:-translate-y-1
-    hover:shadow-xl dark:hover:shadow-black/60
-    hover:border-blue-200 dark:hover:border-blue-500/50
-    hover:ring-2 hover:ring-blue-400/20 dark:hover:ring-blue-400/25
-  "
->
+    <div
+      className="
+        group rounded-2xl
+        border border-neutral-200 dark:border-neutral-700
+        bg-white dark:bg-neutral-800
+        shadow-sm
+        p-3 laptop:p-4
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:shadow-xl dark:hover:shadow-black/60
+        hover:border-accent/40 dark:hover:border-accent/50
+        hover:ring-2 hover:ring-accent/20 dark:hover:ring-accent/25
+      "
+    >
       {/* Image */}
       <div className="
         relative aspect-[4/3] overflow-hidden rounded-xl
-        bg-black/5 dark:bg-zinc-700/50
+        bg-black/5 dark:bg-neutral-700/50
       ">
         <Image
           src={imageSrc}
-          alt={t(title)}
+          alt={title}
           fill
           className="
             object-cover
@@ -61,20 +57,20 @@ export default function ProjectCard({
       {/* Text */}
       <div className="mt-4 space-y-1">
         <h3 className="
-          text-xl laptop:text-2xl font-semibold leading-tight
+          text-lg laptop:text-xl font-semibold leading-tight
           text-neutral-900 dark:text-neutral-100
         ">
-          {t(title)}
+          {title}
         </h3>
 
         <p className="
           text-sm laptop:text-base
           text-neutral-600 dark:text-neutral-400
         ">
-          {t(description)}
+          {description}
         </p>
       </div>
-    </article>
+    </div>
   );
 
   if (isExternal) {

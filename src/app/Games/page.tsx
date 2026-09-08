@@ -20,12 +20,12 @@ const games = [
 
 const GamesPage: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-12 bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
-      <h1 className="text-4xl font-bold text-center mb-10">Retro Games</h1>
+    <div className="container mx-auto px-4 py-12 bg-white dark:bg-surface-dark text-neutral-900 dark:text-neutral-100">
+      <h1 className="text-2xl laptop:text-3xl font-semibold text-center mb-10">Retro Games</h1>
       <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
         {games.map((game) => (
           <Link href={game.href} key={game.name}>
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg overflow-hidden shadow-sm hover:shadow-xl hover:border-accent/40 transition-all duration-300 transform hover:-translate-y-1">
               <div className="w-[300px] h-[300px]">
                 <Image
                   src={game.image}
